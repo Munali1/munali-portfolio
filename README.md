@@ -48,4 +48,4 @@ Configure email forwarding for the contact form:
 - `SMTP_USER`
 - `SMTP_PASS`
 - `CONTACT_FROM`
-- `CONTACT_TO` (set to `munali.shakya@gmail.com`)
+- `CONTACT_TO` (set to `your email`)
