@@ -207,7 +207,7 @@ export default function Home() {
         >
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[var(--accent)]/20 blur-[140px]" />
-            <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-sky-400/20 blur-[160px]" />
+            <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#c026ff]/25 blur-[160px]" />
           </div>
           <Container>
             <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
@@ -480,6 +480,25 @@ export default function Home() {
                     href="mailto:munali.shakya@gmail.com"
                     className="mt-2 inline-flex items-center gap-2 text-foreground"
                   >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="h-4 w-4 text-[var(--accent)]"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M4 6h16v12H4z"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="m4 7 8 6 8-6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                     munali.shakya@gmail.com
                   </a>
                 </div>
@@ -491,6 +510,14 @@ export default function Home() {
                     href="https://github.com/Munali1"
                     className="mt-2 inline-flex items-center gap-2 text-foreground"
                   >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-4 w-4 text-[var(--accent)]"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 2c-5.52 0-10 4.59-10 10.25 0 4.53 2.87 8.37 6.85 9.73.5.1.68-.22.68-.5 0-.24-.01-.88-.01-1.72-2.79.63-3.38-1.38-3.38-1.38-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.55 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.23-.27-4.58-1.15-4.58-5.1 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.73 0 0 .85-.28 2.78 1.06.81-.23 1.67-.35 2.52-.35.86 0 1.72.12 2.52.35 1.93-1.34 2.78-1.06 2.78-1.06.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.77 0 3.96-2.35 4.83-4.59 5.09.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .28.18.6.69.5A10.03 10.03 0 0 0 22 12.25C22 6.59 17.52 2 12 2Z" />
+                    </svg>
                     github.com/Munali1
                   </a>
                 </div>
@@ -502,6 +529,14 @@ export default function Home() {
                     href="https://github.com/Munali1"
                     className="mt-2 inline-flex items-center gap-2 text-foreground"
                   >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-4 w-4 text-[var(--accent)]"
+                      aria-hidden="true"
+                    >
+                      <path d="M5.05 3.5a1.9 1.9 0 0 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm-1.3 6.3h2.6v10.7h-2.6V9.8Zm6.32 0h2.5v1.46h.03c.35-.67 1.2-1.38 2.47-1.38 2.64 0 3.13 1.77 3.13 4.07v6.55h-2.6v-5.8c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.22 1.53-2.22 3.06v5.9h-2.6V9.8Z" />
+                    </svg>
                     github.com/Munali1
                   </a>
                 </div>

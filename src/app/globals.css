@@ -6,15 +6,24 @@
   --muted: #556272;
   --muted-strong: #2f3a49;
   --card: #ffffff;
+<<<<<<< Updated upstream
   --border: #d8e0ea;
   --accent: #ff8b5e;
   --accent-strong: #f1723b;
   --ring: rgba(255, 139, 94, 0.3);
   --shadow: 0 28px 70px rgba(15, 23, 42, 0.1);
+=======
+  --border: #d6dee8;
+  --accent: #3d5afe;
+  --accent-strong: #c026ff;
+  --ring: rgba(61, 90, 254, 0.22);
+  --shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
+>>>>>>> Stashed changes
   --grid: rgba(15, 23, 42, 0.05);
 }
 
 .dark {
+<<<<<<< Updated upstream
   --background: #0a111a;
   --foreground: #e7eef6;
   --muted: #93a4b6;
@@ -24,6 +33,17 @@
   --accent: #ffb26a;
   --accent-strong: #ff9448;
   --ring: rgba(255, 178, 106, 0.28);
+=======
+  --background: #0b0f14;
+  --foreground: #e6edf3;
+  --muted: #9fb0c3;
+  --muted-strong: #6b7c93;
+  --card: #161f2d;
+  --border: #1f2a3a;
+  --accent: #3d5afe;
+  --accent-strong: #c026ff;
+  --ring: rgba(61, 90, 254, 0.4);
+>>>>>>> Stashed changes
   --shadow: 0 28px 70px rgba(2, 6, 23, 0.6);
   --grid: rgba(148, 163, 184, 0.12);
 }
@@ -45,12 +65,20 @@ body {
   min-height: 100vh;
   background-image: radial-gradient(
       1000px circle at 12% 12%,
+<<<<<<< Updated upstream
       rgba(255, 178, 106, 0.18),
+=======
+      rgba(61, 90, 254, 0.22),
+>>>>>>> Stashed changes
       transparent 40%
     ),
     radial-gradient(
       800px circle at 88% 18%,
+<<<<<<< Updated upstream
       rgba(56, 189, 248, 0.16),
+=======
+      rgba(192, 38, 255, 0.16),
+>>>>>>> Stashed changes
       transparent 45%
     ),
     linear-gradient(transparent 24px, var(--grid) 25px),
@@ -80,3 +108,4 @@ img {
 .text-muted-strong {
   color: var(--muted-strong);
 }
+
