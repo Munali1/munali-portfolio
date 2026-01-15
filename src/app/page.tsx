@@ -230,7 +230,7 @@ export default function Home() {
                     View Projects
                   </a>
                   <a
-                    href="/Munali-Shakya-CV.pdf"
+                    href="/Munali_Shakya-CV.pdf"
                     className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] px-6 py-3 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-[var(--accent)]"
                   >
                     Download CV
@@ -526,7 +526,7 @@ export default function Home() {
                     LinkedIn
                   </p>
                   <a
-                    href="https://github.com/Munali1"
+                    href="https://www.linkedin.com/in/munali-shakya-665b0b253/"
                     className="mt-2 inline-flex items-center gap-2 text-foreground"
                   >
                     <svg
@@ -537,7 +537,32 @@ export default function Home() {
                     >
                       <path d="M5.05 3.5a1.9 1.9 0 0 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm-1.3 6.3h2.6v10.7h-2.6V9.8Zm6.32 0h2.5v1.46h.03c.35-.67 1.2-1.38 2.47-1.38 2.64 0 3.13 1.77 3.13 4.07v6.55h-2.6v-5.8c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.22 1.53-2.22 3.06v5.9h-2.6V9.8Z" />
                     </svg>
-                    github.com/Munali1
+                    linkedin.com/in/munali-shakya-665b0b253
+                  </a>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-strong">
+                    Phone
+                  </p>
+                  <a
+                    href="tel:+9779840095558"
+                    className="mt-2 inline-flex items-center gap-2 text-foreground"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className="h-4 w-4 text-[var(--accent)]"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M6.5 4.5h3l1 4-2 1a12 12 0 0 0 6 6l1.5-2 4 1v3.2c0 .7-.5 1.3-1.2 1.4-6.8 1-12.9-5.1-11.9-11.9.1-.7.7-1.2 1.4-1.2Z"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    +977 9840095558
                   </a>
                 </div>
               </div>
