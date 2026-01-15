@@ -1,4 +1,4 @@
-# Munali Shakya Portfolio
+# Portfolio
 
 Modern, responsive portfolio site for a backend, cloud, and AI-focused software engineer. Built with Next.js (App Router), Tailwind CSS, and Framer Motion.
 
