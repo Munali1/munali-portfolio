@@ -1,29 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f7fb;
-  --foreground: #0b1220;
-  --muted: #6b7c93;
-  --muted-strong: #3b4757;
+  --background: #eef2ff;
+  --foreground: #070b1a;
+  --muted: #4a5b7a;
+  --muted-strong: #2f3b52;
   --card: #ffffff;
-  --border: #d6dee8;
-  --accent: #4fd1c5;
-  --accent-strong: #38b2ac;
-  --ring: rgba(79, 209, 197, 0.18);
+  --border: #c7d2fe;
+  --accent: #3a7bff;
+  --accent-strong: #c026ff;
+  --ring: rgba(58, 123, 255, 0.26);
   --shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
   --grid: rgba(15, 23, 42, 0.05);
 }
 
 .dark {
-  --background: #0b0f14;
-  --foreground: #e6edf3;
-  --muted: #9fb0c3;
-  --muted-strong: #6b7c93;
-  --card: #161f2d;
-  --border: #1f2a3a;
-  --accent: #4fd1c5;
-  --accent-strong: #38b2ac;
-  --ring: rgba(79, 209, 197, 0.35);
+  --background: #05060b;
+  --foreground: #f1f5ff;
+  --muted: #b7c2e0;
+  --muted-strong: #7f8cb3;
+  --card: #10162a;
+  --border: #1e2540;
+  --accent: #3a7bff;
+  --accent-strong: #c026ff;
+  --ring: rgba(58, 123, 255, 0.45);
   --shadow: 0 28px 70px rgba(2, 6, 23, 0.6);
   --grid: rgba(148, 163, 184, 0.12);
 }
@@ -45,12 +45,12 @@ body {
   min-height: 100vh;
   background-image: radial-gradient(
       1000px circle at 12% 12%,
-      rgba(79, 209, 197, 0.16),
+      rgba(58, 123, 255, 0.3),
       transparent 40%
     ),
     radial-gradient(
       800px circle at 88% 18%,
-      rgba(124, 131, 253, 0.12),
+      rgba(192, 38, 255, 0.22),
       transparent 45%
     ),
     linear-gradient(transparent 24px, var(--grid) 25px),
