@@ -5,19 +5,24 @@ import { useEffect, useState } from "react";
 const STORAGE_KEY = "theme";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    if (typeof window === "undefined") {
+      return "dark";
+    }
+
+    const stored = localStorage.getItem(STORAGE_KEY) as
+      | "dark"
+      | "light"
+      | null;
+    const prefersDark =
+      window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
+    return stored ?? (prefersDark ? "dark" : "light");
+  });
 
   useEffect(() => {
-    const stored =
-      typeof window !== "undefined"
-        ? (localStorage.getItem(STORAGE_KEY) as "dark" | "light" | null)
-        : null;
-    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)")
-      .matches;
-    const nextTheme = stored ?? (prefersDark ? "dark" : "light");
-    setTheme(nextTheme);
-    document.documentElement.classList.toggle("dark", nextTheme === "dark");
-  }, []);
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    localStorage.setItem(STORAGE_KEY, theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";

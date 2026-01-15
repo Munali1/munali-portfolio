@@ -32,7 +32,7 @@ export default function ContactForm() {
 
       form.reset();
       setStatus("success");
-    } catch (error) {
+    } catch {
       setStatus("error");
     }
   };
