@@ -575,8 +575,8 @@ export default function Home() {
       <footer className="border-t border-[var(--border)] py-10 text-center text-xs text-muted">
         <Container>
           <p>
-            Built with Next.js, Tailwind CSS, and Framer Motion. Ready for Vercel
-            or Netlify deployments.
+            Built with Next.js, Tailwind CSS, Framer Motion, and Codex. Human-led,
+            AI-assisted.
           </p>
         </Container>
       </footer>
