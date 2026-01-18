@@ -128,18 +128,21 @@ const projects = [
     description:
       "A government services portal focused on secure, compliant access to citizen workflows and case data.",
     stack: ["ASP.NET", "C#", "REST", "SQL"],
+    url: "https://github.com/Munali1/GovConnect-EGov",
   },
   {
     name: "Payroll Management System",
     description:
       "Automated payroll processing with job scheduling, approvals, and audit-ready reporting.",
     stack: ["ASP.NET Core", "EF Core", "Hangfire", "SQL Server"],
+    url: "https://github.com/Munali1/Payroll-Management-System",
   },
   {
     name: "E-commerce Platform",
     description:
       "Scalable storefront and order management platform with modular services and clean admin tooling.",
     stack: ["ASP.NET MVC", "C#", "Stripe", "MySQL"],
+    url: "https://github.com/Munali1/Ecommerce-DarazClone",
   },
 ];
 
@@ -404,9 +407,13 @@ export default function Home() {
             />
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {projects.map((project) => (
-                <div
+                <a
                   key={project.name}
                   className="group flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)] transition hover:-translate-y-1 hover:border-[var(--accent)]"
+                  href={project.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${project.name} on GitHub`}
                 >
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-foreground">
@@ -426,10 +433,7 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                  <div className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-muted-strong">
-                    GitHub available upon request
-                  </div>
-                </div>
+                </a>
               ))}
             </div>
           </Container>
