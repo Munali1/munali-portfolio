@@ -37,7 +37,7 @@ export default function ThemeToggle() {
       onClick={toggleTheme}
       aria-pressed={theme === "dark"}
       aria-label="Toggle color theme"
-      className="relative inline-flex h-9 w-16 items-center rounded-full border border-[var(--border)] bg-[var(--card)] transition hover:-translate-y-0.5 hover:border-[var(--accent)]"
+      className="relative inline-flex h-10 w-16 items-center rounded-full border border-[var(--border)] bg-[var(--card)]/90 transition hover:border-[var(--accent)]"
     >
       <span className="sr-only">Toggle color theme</span>
       <span

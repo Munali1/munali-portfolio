@@ -1,31 +1,35 @@
 @import "tailwindcss";
 
 :root {
-  --background: #eef2ff;
-  --foreground: #070b1a;
-  --muted: #4a5b7a;
-  --muted-strong: #2f3b52;
+  --background: #f4f6fb;
+  --foreground: #0d1528;
+  --muted: #53627f;
+  --muted-strong: #31405c;
   --card: #ffffff;
-  --border: #c7d2fe;
-  --accent: #3a7bff;
-  --accent-strong: #c026ff;
-  --ring: rgba(58, 123, 255, 0.26);
-  --shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
-  --grid: rgba(15, 23, 42, 0.05);
+  --card-strong: #e8eefc;
+  --border: #d6def0;
+  --accent: #1e63ff;
+  --accent-strong: #0f172a;
+  --accent-soft: #dce8ff;
+  --ring: rgba(30, 99, 255, 0.2);
+  --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+  --grid: rgba(49, 64, 92, 0.06);
 }
 
 .dark {
-  --background: #05060b;
-  --foreground: #f1f5ff;
-  --muted: #b7c2e0;
-  --muted-strong: #7f8cb3;
-  --card: #10162a;
-  --border: #1e2540;
-  --accent: #3a7bff;
-  --accent-strong: #c026ff;
-  --ring: rgba(58, 123, 255, 0.45);
-  --shadow: 0 28px 70px rgba(2, 6, 23, 0.6);
-  --grid: rgba(148, 163, 184, 0.12);
+  --background: #0a1220;
+  --foreground: #edf2ff;
+  --muted: #a2b1d1;
+  --muted-strong: #c4d0e9;
+  --card: #101a2c;
+  --card-strong: #162238;
+  --border: #22304a;
+  --accent: #6aa2ff;
+  --accent-strong: #f8fbff;
+  --accent-soft: rgba(106, 162, 255, 0.12);
+  --ring: rgba(106, 162, 255, 0.36);
+  --shadow: 0 24px 60px rgba(2, 8, 23, 0.46);
+  --grid: rgba(162, 177, 209, 0.12);
 }
 
 @theme inline {
@@ -38,24 +42,26 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), "Inter", system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   background-image: radial-gradient(
-      1000px circle at 12% 12%,
-      rgba(58, 123, 255, 0.3),
-      transparent 40%
+      900px circle at 10% 0%,
+      rgba(30, 99, 255, 0.16),
+      transparent 42%
     ),
     radial-gradient(
-      800px circle at 88% 18%,
-      rgba(192, 38, 255, 0.22),
-      transparent 45%
+      700px circle at 100% 12%,
+      rgba(25, 35, 62, 0.2),
+      transparent 48%
     ),
-    linear-gradient(transparent 24px, var(--grid) 25px),
-    linear-gradient(90deg, transparent 24px, var(--grid) 25px);
-  background-size: auto, auto, 25px 25px, 25px 25px;
+    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.02));
   background-attachment: fixed;
 }
 
@@ -79,4 +85,14 @@ img {
 
 .text-muted-strong {
   color: var(--muted-strong);
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }

@@ -6,95 +6,29 @@ import SectionHeader from "@/components/SectionHeader";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
+  { label: "Proof", href: "#proof" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "AI & Cloud", href: "#ai-cloud" },
+  { label: "Capabilities", href: "#capabilities" },
   { label: "Contact", href: "#contact" },
 ];
 
-const skillCategories = [
+const proofPoints = [
   {
-    title: "Languages & Frameworks",
-    items: ["C#", "ASP.NET Core", "SQL", "Python", "Java"],
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        className="h-6 w-6 text-[var(--accent)]"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      >
-        <path
-          d="M7 8l-3 4 3 4M17 8l3 4-3 4M13 6l-2 12"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    value: "C# + ASP.NET Core",
+    label: "Production backend systems designed for maintainability and throughput.",
   },
   {
-    title: "Cloud & DevOps",
-    items: [
-      "AWS (Lambda, ECS, S3, CloudWatch, SES)",
-      "Terraform",
-      "OpenTofu",
-      "CI/CD (YAML)",
-    ],
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        className="h-6 w-6 text-[var(--accent)]"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      >
-        <path
-          d="M7 18h10a4 4 0 0 0 0-8 6 6 0 0 0-11.3-1.8A4 4 0 0 0 7 18Z"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    value: "AWS + Terraform",
+    label: "Cloud delivery with repeatable infrastructure and deployment discipline.",
   },
   {
-    title: "Databases",
-    items: ["MongoDB", "MySQL", "SQL Server"],
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        className="h-6 w-6 text-[var(--accent)]"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      >
-        <path
-          d="M4 7c0-2 4-4 8-4s8 2 8 4-4 4-8 4-8-2-8-4Zm0 5c0 2 4 4 8 4s8-2 8-4m-16 5c0 2 4 4 8 4s8-2 8-4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    value: "Temporal + CI/CD",
+    label: "Reliable workflows, retries, automation, and less manual operational work.",
   },
   {
-    title: "Workflows & Tools",
-    items: ["Temporal", "Auth0", "Stripe", "OpenAI SDK"],
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        className="h-6 w-6 text-[var(--accent)]"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      >
-        <path
-          d="M7 7h10v10H7zM4 4h4M16 4h4M4 16h4M16 20h4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    value: "OpenAI SDK",
+    label: "AI features integrated into product workflows where they add real utility.",
   },
 ];
 
@@ -102,6 +36,7 @@ const experiences = [
   {
     role: "Associate Software Engineer",
     company: "Proventus Analytics",
+    period: "Current role",
     highlights: [
       "Built RESTful APIs using C# and ASP.NET Core for production workflows.",
       "Deployed AWS infrastructure with Terraform for repeatable environments.",
@@ -114,6 +49,7 @@ const experiences = [
   {
     role: "Software Engineer Intern",
     company: "Proventus Analytics",
+    period: "Earlier stage",
     highlights: [
       "Built foundational APIs supporting internal tools.",
       "Implemented AWS S3 integrations for asset storage.",
@@ -125,57 +61,66 @@ const experiences = [
 const projects = [
   {
     name: "GovConnect",
+    type: "Security-sensitive service portal",
     description:
       "A government services portal focused on secure, compliant access to citizen workflows and case data.",
     stack: ["ASP.NET", "C#", "REST", "SQL"],
+    outcome:
+      "Demonstrates structured domain modeling, secure service design, and regulated-workflow thinking.",
     url: "https://github.com/Munali1/GovConnect-EGov",
   },
   {
     name: "Payroll Management System",
+    type: "Operational workflow platform",
     description:
       "Automated payroll processing with job scheduling, approvals, and audit-ready reporting.",
     stack: ["ASP.NET Core", "EF Core", "Hangfire", "SQL Server"],
+    outcome:
+      "Shows business-flow automation, traceable approvals, and systems designed around operational clarity.",
     url: "https://github.com/Munali1/Payroll-Management-System",
   },
   {
     name: "E-commerce Platform",
+    type: "Transactional commerce system",
     description:
       "Scalable storefront and order management platform with modular services and clean admin tooling.",
     stack: ["ASP.NET MVC", "C#", "Stripe", "MySQL"],
+    outcome:
+      "Proves end-to-end work on payments, modular backend structure, and transaction-heavy product flows.",
     url: "https://github.com/Munali1/Ecommerce-DarazClone",
   },
 ];
 
-const aiHighlights = [
+const capabilities = [
   {
-    title: "Temporal Workflows",
+    title: "Backend Architecture",
     description:
-      "Reliable orchestration for long-running jobs, retries, and resilient background processing.",
+      "Service design centered on clear APIs, robust data flows, and code that remains maintainable after launch.",
   },
   {
-    title: "Infrastructure as Code",
+    title: "Cloud Delivery",
     description:
-      "Terraform and OpenTofu pipelines to provision AWS environments with confidence.",
+      "AWS environments provisioned and deployed through infrastructure as code and repeatable release pipelines.",
   },
   {
-    title: "OpenAI Integrations",
+    title: "Operational Reliability",
     description:
-      "AI-assisted features using the OpenAI SDK, tuned for real product workflows.",
+      "Workflow orchestration, observability, and automation that reduce manual handling and failure-prone processes.",
   },
   {
-    title: "Data Pipelines",
+    title: "AI-Ready Products",
     description:
-      "Secure ingestion, transformation, and observability for production datasets.",
+      "OpenAI-powered features integrated where they support real tasks, not as surface-level product decoration.",
   },
 ];
 
 export default function Home() {
   return (
     <div className="text-foreground">
-      <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/80 backdrop-blur">
-        <Container className="flex items-center justify-between py-4">
+      <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/82 backdrop-blur-xl">
+        <Container className="flex flex-wrap items-center justify-between gap-4 py-4">
           <div className="flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--card)] text-sm font-semibold">
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--card)] text-sm font-semibold shadow-sm">
               MS
             </div>
             <div>
@@ -187,13 +132,13 @@ export default function Home() {
           </div>
           <nav
             aria-label="Primary"
-            className="hidden items-center gap-6 text-sm font-medium text-muted-strong lg:flex"
+            className="order-3 -mx-2 flex w-full items-center gap-2 overflow-x-auto px-2 pb-1 text-sm font-medium text-muted-strong lg:order-none lg:w-auto lg:overflow-visible lg:px-0 lg:pb-0"
           >
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="transition hover:text-foreground"
+                className="whitespace-nowrap rounded-full border border-transparent px-3 py-2 transition hover:border-[var(--border)] hover:bg-[var(--card)] hover:text-foreground"
               >
                 {item.label}
               </a>
@@ -206,84 +151,107 @@ export default function Home() {
       <main>
         <AnimatedSection
           id="top"
-          className="relative overflow-hidden pb-20 pt-20 lg:pt-28"
+          className="relative overflow-hidden pb-20 pt-16 lg:pt-24"
         >
           <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-[var(--accent)]/20 blur-[140px]" />
-            <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#c026ff]/25 blur-[160px]" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/40 to-transparent" />
+            <div className="absolute left-0 top-12 h-64 w-64 rounded-full bg-[var(--accent)]/12 blur-[120px]" />
           </div>
           <Container>
-            <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="grid items-start gap-12 lg:grid-cols-[1.2fr_0.8fr]">
               <div className="relative z-10">
-                <Badge className="bg-transparent text-[var(--accent)]">
-                  Backend + Cloud Engineer
+                <Badge className="border-[var(--accent)]/20 bg-[var(--accent-soft)] text-[var(--accent)] shadow-none">
+                  Backend engineer for durable cloud systems
                 </Badge>
-                <h1 className="mt-6 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-display">
-                  Software Engineer building scalable backend & cloud systems
+                <h1 className="mt-6 max-w-4xl text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-6xl font-display">
+                  I design and build backend platforms that stay reliable under
+                  real operational pressure.
                 </h1>
-                <p className="mt-6 text-lg leading-relaxed text-muted">
-                  C#, ASP.NET Core, AWS, Terraform, Temporal, and AI integrations
-                  for cloud-native, production-ready platforms.
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">
+                  My work sits at the intersection of API engineering, AWS
+                  infrastructure, delivery automation, and workflow reliability.
+                  The goal is simple: ship systems that are easier to operate,
+                  scale, and trust.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <a
                     href="#projects"
-                    className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-black shadow-[var(--shadow)] transition hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
+                    className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white shadow-[var(--shadow)] transition hover:-translate-y-0.5"
                   >
-                    View Projects
+                    See selected work
                   </a>
                   <a
                     href="/Munali_Shakya-CV.pdf"
-                    className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] px-6 py-3 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-[var(--accent)]"
+                    className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] px-6 py-3.5 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-[var(--accent)]"
                   >
                     Download CV
                   </a>
                 </div>
-                <div className="mt-10 flex flex-wrap gap-3 text-sm text-muted">
-                  <span className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1">
-                    Backend Engineering
-                  </span>
-                  <span className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1">
-                    Cloud Infrastructure
-                  </span>
-                  <span className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1">
-                    Workflow Orchestration
-                  </span>
-                  <span className="rounded-full border border-[var(--border)] bg-[var(--card)] px-3 py-1">
-                    AI Integration
-                  </span>
+                <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                  {proofPoints.map((point) => (
+                    <div
+                      key={point.value}
+                      className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-[var(--shadow)]"
+                    >
+                      <p className="text-sm font-semibold text-foreground">
+                        {point.value}
+                      </p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted">
+                        {point.label}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="relative z-10">
-                <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-8 shadow-[var(--shadow)]">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--accent)]">
-                    Primary Stack
-                  </p>
-                  <h3 className="mt-4 text-xl font-semibold text-foreground">
-                    C#, ASP.NET Core, AWS, Terraform, Temporal, MongoDB
-                  </h3>
-                  <div className="mt-6 space-y-4 text-sm text-muted">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-strong">
-                        Focus Areas
-                      </p>
-                      <p className="mt-2">
-                        Backend development, cloud infrastructure, reliability
-                        engineering, AI-assisted workflows.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-strong">
-                        Delivery
-                      </p>
-                      <p className="mt-2">
-                        Production-ready APIs, CI/CD automation, and scalable
-                        service design.
-                      </p>
-                    </div>
+                <div className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] shadow-[var(--shadow)]">
+                  <div className="border-b border-[var(--border)] bg-[var(--card-strong)] px-7 py-6">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">
+                      Positioning
+                    </p>
+                    <h2 className="mt-3 text-2xl font-semibold text-foreground font-display">
+                      Backend-first, cloud-native, operations-aware
+                    </h2>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      I work best on products where the hard part is not the UI,
+                      but the correctness, resilience, and maintainability behind
+                      it.
+                    </p>
                   </div>
-                  <div className="mt-8 rounded-2xl border border-dashed border-[var(--border)] bg-[var(--background)] px-4 py-3 text-xs text-muted">
-                    Open to backend, cloud, and AI-focused roles.
+                  <div className="space-y-6 px-7 py-7 text-sm text-muted">
+                    <div className="border-b border-[var(--border)] pb-5">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                        Best at
+                      </p>
+                      <p className="mt-2 leading-relaxed">
+                        APIs, workflows, service integration, infrastructure
+                        automation, and systems that need to keep working after
+                        handoff.
+                      </p>
+                    </div>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div className="rounded-2xl bg-[var(--background)] p-4">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                          Core stack
+                        </p>
+                        <p className="mt-2 leading-relaxed">
+                          C#, ASP.NET Core, AWS, Terraform, MongoDB, SQL Server
+                        </p>
+                      </div>
+                      <div className="rounded-2xl bg-[var(--background)] p-4">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                          Differentiators
+                        </p>
+                        <p className="mt-2 leading-relaxed">
+                          Temporal workflows, CI/CD pipelines, Auth0, Stripe,
+                          OpenAI SDK
+                        </p>
+                      </div>
+                    </div>
+                    <div className="rounded-2xl border border-dashed border-[var(--border)] bg-[var(--accent-soft)] px-4 py-4 text-sm text-muted">
+                      Open to backend, platform, cloud, and AI-adjacent
+                      engineering roles.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -291,65 +259,53 @@ export default function Home() {
           </Container>
         </AnimatedSection>
 
-        <AnimatedSection id="about" className="py-20">
-          <Container className="grid gap-10 lg:grid-cols-[0.5fr_1fr]">
-            <SectionHeader
-              eyebrow="About"
-              title="Backend-first engineer with a cloud-native mindset"
-              description="Focused on building reliable, scalable systems with clean APIs, stable infrastructure, and thoughtful automation."
-            />
-            <div className="space-y-6 text-base leading-relaxed text-muted">
-              <p>
-                Backend-focused Software Engineer with experience building
-                cloud-native applications using C# and ASP.NET Core. Skilled in
-                AWS, Infrastructure as Code (Terraform/OpenTofu), CI/CD
-                pipelines, Temporal workflows, and AI integrations using OpenAI
-                SDK.
-              </p>
-              <p>
-                I care about reliability, observability, and the operational
-                details that keep services stable in production. I enjoy
-                translating product goals into scalable backend systems with
-                clear workflows and measurable outcomes.
-              </p>
-            </div>
-          </Container>
-        </AnimatedSection>
-
-        <AnimatedSection
-          id="skills"
-          className="border-t border-[var(--border)] py-20"
-        >
+        <AnimatedSection id="proof" className="py-20">
           <Container>
-            <SectionHeader
-              eyebrow="Skills"
-              title="Focused, production-ready stack"
-              description="A pragmatic toolset centered on backend services, cloud infrastructure, and workflow orchestration."
-            />
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {skillCategories.map((category) => (
-                <div
-                  key={category.title}
-                  className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)] transition hover:-translate-y-1 hover:border-[var(--accent)]"
-                >
-                  <div className="flex items-center gap-3">
-                    {category.icon}
-                    <h3 className="text-lg font-semibold text-foreground">
-                      {category.title}
-                    </h3>
-                  </div>
-                  <div className="mt-4 flex flex-wrap gap-2 text-sm text-muted">
-                    {category.items.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+              <SectionHeader
+                eyebrow="Proof"
+                title="The strongest story here is execution, not just tool familiarity."
+                description="This portfolio now leads with how I work: stable APIs, cloud delivery discipline, and backend systems shaped around real product constraints."
+              />
+              <div className="grid gap-4 sm:grid-cols-3">
+                <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)]">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                    Engineering lens
+                  </p>
+                  <p className="mt-4 text-xl font-semibold text-foreground font-display">
+                    Reliability first
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    I focus on systems that need predictable behavior, clean
+                    failure handling, and clear operational ownership.
+                  </p>
                 </div>
-              ))}
+                <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)]">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                    Delivery lens
+                  </p>
+                  <p className="mt-4 text-xl font-semibold text-foreground font-display">
+                    Infrastructure included
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Product delivery does not stop at code. Provisioning,
+                    deployment, secrets, and monitoring are part of the
+                    engineering boundary.
+                  </p>
+                </div>
+                <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)]">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                    Product lens
+                  </p>
+                  <p className="mt-4 text-xl font-semibold text-foreground font-display">
+                    Practical AI usage
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    AI is treated as a workflow capability inside real products,
+                    not as a visual gimmick.
+                  </p>
+                </div>
+              </div>
             </div>
           </Container>
         </AnimatedSection>
@@ -358,32 +314,38 @@ export default function Home() {
           <Container>
             <SectionHeader
               eyebrow="Experience"
-              title="Building reliable systems at scale"
-              description="Highlights from backend, cloud, and AI-focused roles."
+              title="Experience framed around responsibility, not just titles."
+              description="The emphasis here is on production-facing engineering work: APIs, infrastructure, automation, and integrations that support ongoing delivery."
             />
-            <div className="relative mt-10">
-              <div className="absolute left-2 top-2 h-full w-px bg-[var(--border)]" />
+            <div className="relative mt-12">
+              <div className="absolute left-3 top-4 hidden h-full w-px bg-[var(--border)] md:block" />
               <div className="space-y-8">
                 {experiences.map((experience) => (
                   <div
                     key={experience.role}
-                    className="relative rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 pl-10 shadow-[var(--shadow)]"
+                    className="relative rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-7 shadow-[var(--shadow)] md:ml-10"
                   >
-                    <span className="absolute left-0 top-7 flex h-4 w-4 items-center justify-center rounded-full border border-[var(--accent)] bg-[var(--background)]">
+                    <span className="absolute -left-[2.85rem] top-8 hidden h-5 w-5 items-center justify-center rounded-full border border-[var(--accent)] bg-[var(--background)] md:flex">
                       <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
                     </span>
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <div>
-                        <h3 className="text-lg font-semibold text-foreground">
-                          {experience.role}
-                        </h3>
-                        <p className="text-sm text-muted">{experience.company}</p>
-                      </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
+                        {experience.period}
+                      </p>
+                      <h3 className="mt-2 text-2xl font-semibold text-foreground font-display">
+                        {experience.role}
+                      </h3>
+                      <p className="mt-1 text-sm text-muted">
+                        {experience.company}
+                      </p>
                     </div>
-                    <ul className="mt-4 space-y-2 text-sm text-muted">
+                    <ul className="mt-6 grid gap-3 text-sm text-muted sm:grid-cols-2">
                       {experience.highlights.map((item) => (
-                        <li key={item} className="flex gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+                        <li
+                          key={item}
+                          className="flex gap-3 rounded-2xl bg-[var(--background)] px-4 py-4"
+                        >
+                          <span className="mt-1.5 h-2 w-2 rounded-full bg-[var(--accent)]" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -402,35 +364,51 @@ export default function Home() {
           <Container>
             <SectionHeader
               eyebrow="Projects"
-              title="Selected backend systems and platforms"
-              description="A mix of public and internal work focused on secure APIs, automation, and scalable services."
+              title="Selected work that shows system thinking, not just feature shipping."
+              description="Each project points to a different kind of backend challenge: secure access, operational automation, and transaction-heavy product flows."
             />
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 space-y-6">
               {projects.map((project) => (
                 <a
                   key={project.name}
-                  className="group flex h-full flex-col rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)] transition hover:-translate-y-1 hover:border-[var(--accent)]"
+                  className="group grid gap-6 rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-7 shadow-[var(--shadow)] transition hover:-translate-y-1 hover:border-[var(--accent)] lg:grid-cols-[0.85fr_1.15fr]"
                   href={project.url}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`Open ${project.name} on GitHub`}
                 >
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-foreground">
+                  <div className="rounded-[1.5rem] bg-[var(--card-strong)] p-6">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
+                      {project.type}
+                    </p>
+                    <h3 className="mt-4 text-2xl font-semibold text-foreground font-display">
                       {project.name}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">
-                      {project.description}
+                    <p className="mt-4 text-sm leading-relaxed text-muted">
+                      {project.outcome}
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted">
-                      {project.stack.map((tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  </div>
+                  <div className="flex flex-col justify-between">
+                    <div>
+                      <p className="text-base leading-relaxed text-muted">
+                        {project.description}
+                      </p>
+                      <div className="mt-5 flex flex-wrap gap-2 text-xs text-muted">
+                        {project.stack.map((tech) => (
+                          <span
+                            key={tech}
+                            className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+                      View repository
+                      <span className="transition group-hover:translate-x-1">
+                        -&gt;
+                      </span>
                     </div>
                   </div>
                 </a>
@@ -439,23 +417,26 @@ export default function Home() {
           </Container>
         </AnimatedSection>
 
-        <AnimatedSection id="ai-cloud" className="py-20">
+        <AnimatedSection id="capabilities" className="py-20">
           <Container>
             <SectionHeader
-              eyebrow="AI, Cloud & Reliability"
-              title="The differentiators that make systems durable"
-              description="Combining orchestration, infrastructure automation, and AI to deliver reliable backend services."
+              eyebrow="Capabilities"
+              title="The capability stack is organized around outcomes."
+              description="Instead of listing tools in isolation, this section explains what they enable in practice."
             />
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {aiHighlights.map((item) => (
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {capabilities.map((item) => (
                 <div
                   key={item.title}
-                  className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)] transition hover:-translate-y-1 hover:border-[var(--accent)]"
+                  className="rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-7 shadow-[var(--shadow)]"
                 >
-                  <h3 className="text-lg font-semibold text-foreground">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
+                    Capability
+                  </p>
+                  <h3 className="mt-4 text-2xl font-semibold text-foreground font-display">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                  <p className="mt-4 text-base leading-relaxed text-muted">
                     {item.description}
                   </p>
                 </div>
@@ -468,109 +449,131 @@ export default function Home() {
           id="contact"
           className="border-t border-[var(--border)] py-20"
         >
-          <Container className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-            <SectionHeader
-              eyebrow="Contact"
-              title="Let us build something reliable together"
-              description="Open to backend, cloud, and AI-focused roles."
-            />
-            <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)]">
-              <div className="space-y-4 text-sm text-muted">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-strong">
-                    Email
-                  </p>
-                  <a
-                    href="mailto:munali.shakya@gmail.com"
-                    className="mt-2 inline-flex items-center gap-2 text-foreground"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-4 w-4 text-[var(--accent)]"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M4 6h16v12H4z"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                      <path
-                        d="m4 7 8 6 8-6"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    munali.shakya@gmail.com
-                  </a>
+          <Container>
+            <div className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] shadow-[var(--shadow)]">
+              <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+                <div className="border-b border-[var(--border)] bg-[var(--card-strong)] p-8 lg:border-b-0 lg:border-r">
+                  <SectionHeader
+                    eyebrow="Contact"
+                    title="If the problem is backend complexity, delivery discipline, or cloud reliability, I am interested."
+                    description="Use the form for roles, freelance discussions, or engineering conversations. Direct contact options are here as well."
+                  />
+                  <div className="mt-8 grid gap-4 text-sm text-muted">
+                    <div className="rounded-2xl bg-[var(--card)] p-4">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                        Best fit
+                      </p>
+                      <p className="mt-2 leading-relaxed">
+                        Backend engineering, platform work, cloud infrastructure,
+                        API-heavy systems, and AI-enabled product operations.
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                        Email
+                      </p>
+                      <a
+                        href="mailto:munali.shakya@gmail.com"
+                        className="mt-2 inline-flex items-center gap-2 text-foreground"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          className="h-4 w-4 text-[var(--accent)]"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M4 6h16v12H4z"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                          <path
+                            d="m4 7 8 6 8-6"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        munali.shakya@gmail.com
+                      </a>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                        GitHub
+                      </p>
+                      <a
+                        href="https://github.com/Munali1"
+                        className="mt-2 inline-flex items-center gap-2 text-foreground"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="h-4 w-4 text-[var(--accent)]"
+                          aria-hidden="true"
+                        >
+                          <path d="M12 2c-5.52 0-10 4.59-10 10.25 0 4.53 2.87 8.37 6.85 9.73.5.1.68-.22.68-.5 0-.24-.01-.88-.01-1.72-2.79.63-3.38-1.38-3.38-1.38-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.55 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.23-.27-4.58-1.15-4.58-5.1 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.73 0 0 .85-.28 2.78 1.06.81-.23 1.67-.35 2.52-.35.86 0 1.72.12 2.52.35 1.93-1.34 2.78-1.06 2.78-1.06.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.77 0 3.96-2.35 4.83-4.59 5.09.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .28.18.6.69.5A10.03 10.03 0 0 0 22 12.25C22 6.59 17.52 2 12 2Z" />
+                        </svg>
+                        github.com/Munali1
+                      </a>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                        LinkedIn
+                      </p>
+                      <a
+                        href="https://www.linkedin.com/in/munali-shakya-665b0b253/"
+                        className="mt-2 inline-flex items-center gap-2 break-all text-foreground"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="h-4 w-4 text-[var(--accent)]"
+                          aria-hidden="true"
+                        >
+                          <path d="M5.05 3.5a1.9 1.9 0 0 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm-1.3 6.3h2.6v10.7h-2.6V9.8Zm6.32 0h2.5v1.46h.03c.35-.67 1.2-1.38 2.47-1.38 2.64 0 3.13 1.77 3.13 4.07v6.55h-2.6v-5.8c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.22 1.53-2.22 3.06v5.9h-2.6V9.8Z" />
+                        </svg>
+                        linkedin.com/in/munali-shakya-665b0b253
+                      </a>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+                        Phone
+                      </p>
+                      <a
+                        href="tel:+9779840095558"
+                        className="mt-2 inline-flex items-center gap-2 text-foreground"
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          className="h-4 w-4 text-[var(--accent)]"
+                          stroke="currentColor"
+                          strokeWidth="1.6"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M6.5 4.5h3l1 4-2 1a12 12 0 0 0 6 6l1.5-2 4 1v3.2c0 .7-.5 1.3-1.2 1.4-6.8 1-12.9-5.1-11.9-11.9.1-.7.7-1.2 1.4-1.2Z"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                        +977 9840095558
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-strong">
-                    GitHub
+                <div className="p-8">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
+                    Send a message
                   </p>
-                  <a
-                    href="https://github.com/Munali1"
-                    className="mt-2 inline-flex items-center gap-2 text-foreground"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="h-4 w-4 text-[var(--accent)]"
-                      aria-hidden="true"
-                    >
-                      <path d="M12 2c-5.52 0-10 4.59-10 10.25 0 4.53 2.87 8.37 6.85 9.73.5.1.68-.22.68-.5 0-.24-.01-.88-.01-1.72-2.79.63-3.38-1.38-3.38-1.38-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.55 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.23-.27-4.58-1.15-4.58-5.1 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.73 0 0 .85-.28 2.78 1.06.81-.23 1.67-.35 2.52-.35.86 0 1.72.12 2.52.35 1.93-1.34 2.78-1.06 2.78-1.06.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.77 0 3.96-2.35 4.83-4.59 5.09.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .28.18.6.69.5A10.03 10.03 0 0 0 22 12.25C22 6.59 17.52 2 12 2Z" />
-                    </svg>
-                    github.com/Munali1
-                  </a>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-strong">
-                    LinkedIn
+                  <p className="mt-3 max-w-lg text-base leading-relaxed text-muted">
+                    A short brief is enough. Include the role, problem space, or
+                    project scope and I can respond with relevant context.
                   </p>
-                  <a
-                    href="https://www.linkedin.com/in/munali-shakya-665b0b253/"
-                    className="mt-2 inline-flex items-center gap-2 text-foreground"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="h-4 w-4 text-[var(--accent)]"
-                      aria-hidden="true"
-                    >
-                      <path d="M5.05 3.5a1.9 1.9 0 0 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm-1.3 6.3h2.6v10.7h-2.6V9.8Zm6.32 0h2.5v1.46h.03c.35-.67 1.2-1.38 2.47-1.38 2.64 0 3.13 1.77 3.13 4.07v6.55h-2.6v-5.8c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.22 1.53-2.22 3.06v5.9h-2.6V9.8Z" />
-                    </svg>
-                    linkedin.com/in/munali-shakya-665b0b253
-                  </a>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-strong">
-                    Phone
-                  </p>
-                  <a
-                    href="tel:+9779840095558"
-                    className="mt-2 inline-flex items-center gap-2 text-foreground"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      className="h-4 w-4 text-[var(--accent)]"
-                      stroke="currentColor"
-                      strokeWidth="1.6"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M6.5 4.5h3l1 4-2 1a12 12 0 0 0 6 6l1.5-2 4 1v3.2c0 .7-.5 1.3-1.2 1.4-6.8 1-12.9-5.1-11.9-11.9.1-.7.7-1.2 1.4-1.2Z"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    +977 9840095558
-                  </a>
+                  <ContactForm />
                 </div>
               </div>
-              <ContactForm />
             </div>
           </Container>
         </AnimatedSection>
@@ -579,8 +582,8 @@ export default function Home() {
       <footer className="border-t border-[var(--border)] py-10 text-center text-xs text-muted">
         <Container>
           <p>
-            Built with Next.js, Tailwind CSS, Framer Motion, and Codex. Human-led,
-            AI-assisted.
+            Built with Next.js, Tailwind CSS, Framer Motion, and Codex.
+            Human-led, AI-assisted.
           </p>
         </Container>
       </footer>

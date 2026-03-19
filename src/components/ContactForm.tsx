@@ -38,47 +38,47 @@ export default function ContactForm() {
   };
 
   return (
-    <form className="mt-8 grid gap-4" onSubmit={handleSubmit}>
+    <form className="mt-8 grid gap-5" onSubmit={handleSubmit}>
       <div>
-        <label className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-strong">
+        <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
           Name
         </label>
         <input
           type="text"
           name="name"
           required
-          className="mt-2 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm text-foreground outline-none focus:border-[var(--accent)]"
+          className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--background)] px-4 py-3.5 text-sm text-foreground outline-none transition focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_var(--ring)]"
           placeholder="Your name"
         />
       </div>
       <div>
-        <label className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-strong">
+        <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
           Email
         </label>
         <input
           type="email"
           name="email"
           required
-          className="mt-2 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm text-foreground outline-none focus:border-[var(--accent)]"
+          className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--background)] px-4 py-3.5 text-sm text-foreground outline-none transition focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_var(--ring)]"
           placeholder="you@email.com"
         />
       </div>
       <div>
-        <label className="text-xs font-semibold uppercase tracking-[0.3em] text-muted-strong">
+        <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
           Message
         </label>
         <textarea
           name="message"
-          rows={4}
+          rows={5}
           required
-          className="mt-2 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm text-foreground outline-none focus:border-[var(--accent)]"
+          className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--background)] px-4 py-3.5 text-sm text-foreground outline-none transition focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_var(--ring)]"
           placeholder="Share a short note about the role or project."
         />
       </div>
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-black transition hover:-translate-y-0.5 hover:bg-[var(--accent-strong)] disabled:cursor-not-allowed disabled:opacity-70"
+        className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[var(--shadow)] disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === "loading" ? "Sending..." : "Send Message"}
       </button>
