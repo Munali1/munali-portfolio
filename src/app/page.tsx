@@ -1,35 +1,14 @@
 import AnimatedSection from "@/components/AnimatedSection";
-import Badge from "@/components/Badge";
 import Container from "@/components/Container";
 import ContactForm from "@/components/ContactForm";
+import HeroSection from "@/components/HeroSection";
 import SectionHeader from "@/components/SectionHeader";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const navItems = [
-  { label: "Proof", href: "#proof" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Capabilities", href: "#capabilities" },
   { label: "Contact", href: "#contact" },
-];
-
-const proofPoints = [
-  {
-    value: "C# + ASP.NET Core",
-    label: "Production backend systems designed for maintainability and throughput.",
-  },
-  {
-    value: "AWS + Terraform",
-    label: "Cloud delivery with repeatable infrastructure and deployment discipline.",
-  },
-  {
-    value: "Temporal + CI/CD",
-    label: "Reliable workflows, retries, automation, and less manual operational work.",
-  },
-  {
-    value: "OpenAI SDK",
-    label: "AI features integrated into product workflows where they add real utility.",
-  },
 ];
 
 const experiences = [
@@ -91,29 +70,6 @@ const projects = [
   },
 ];
 
-const capabilities = [
-  {
-    title: "Backend Architecture",
-    description:
-      "Service design centered on clear APIs, robust data flows, and code that remains maintainable after launch.",
-  },
-  {
-    title: "Cloud Delivery",
-    description:
-      "AWS environments provisioned and deployed through infrastructure as code and repeatable release pipelines.",
-  },
-  {
-    title: "Operational Reliability",
-    description:
-      "Workflow orchestration, observability, and automation that reduce manual handling and failure-prone processes.",
-  },
-  {
-    title: "AI-Ready Products",
-    description:
-      "OpenAI-powered features integrated where they support real tasks, not as surface-level product decoration.",
-  },
-];
-
 export default function Home() {
   return (
     <div className="text-foreground">
@@ -149,166 +105,7 @@ export default function Home() {
       </header>
 
       <main>
-        <AnimatedSection
-          id="top"
-          className="relative overflow-hidden pb-20 pt-16 lg:pt-24"
-        >
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[var(--accent)]/40 to-transparent" />
-            <div className="absolute left-0 top-12 h-64 w-64 rounded-full bg-[var(--accent)]/12 blur-[120px]" />
-          </div>
-          <Container>
-            <div className="grid items-start gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-              <div className="relative z-10">
-                <Badge className="border-[var(--accent)]/20 bg-[var(--accent-soft)] text-[var(--accent)] shadow-none">
-                  Backend engineer for durable cloud systems
-                </Badge>
-                <h1 className="mt-6 max-w-4xl text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-6xl font-display">
-                  I design and build backend platforms that stay reliable under
-                  real operational pressure.
-                </h1>
-                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">
-                  My work sits at the intersection of API engineering, AWS
-                  infrastructure, delivery automation, and workflow reliability.
-                  The goal is simple: ship systems that are easier to operate,
-                  scale, and trust.
-                </p>
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a
-                    href="#projects"
-                    className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white shadow-[var(--shadow)] transition hover:-translate-y-0.5"
-                  >
-                    See selected work
-                  </a>
-                  <a
-                    href="/Munali_Shakya-CV.pdf"
-                    className="inline-flex items-center justify-center rounded-full border border-[var(--border)] bg-[var(--card)] px-6 py-3.5 text-sm font-semibold text-foreground transition hover:-translate-y-0.5 hover:border-[var(--accent)]"
-                  >
-                    Download CV
-                  </a>
-                </div>
-                <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                  {proofPoints.map((point) => (
-                    <div
-                      key={point.value}
-                      className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-5 shadow-[var(--shadow)]"
-                    >
-                      <p className="text-sm font-semibold text-foreground">
-                        {point.value}
-                      </p>
-                      <p className="mt-2 text-sm leading-relaxed text-muted">
-                        {point.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="relative z-10">
-                <div className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] shadow-[var(--shadow)]">
-                  <div className="border-b border-[var(--border)] bg-[var(--card-strong)] px-7 py-6">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-[var(--accent)]">
-                      Positioning
-                    </p>
-                    <h2 className="mt-3 text-2xl font-semibold text-foreground font-display">
-                      Backend-first, cloud-native, operations-aware
-                    </h2>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">
-                      I work best on products where the hard part is not the UI,
-                      but the correctness, resilience, and maintainability behind
-                      it.
-                    </p>
-                  </div>
-                  <div className="space-y-6 px-7 py-7 text-sm text-muted">
-                    <div className="border-b border-[var(--border)] pb-5">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                        Best at
-                      </p>
-                      <p className="mt-2 leading-relaxed">
-                        APIs, workflows, service integration, infrastructure
-                        automation, and systems that need to keep working after
-                        handoff.
-                      </p>
-                    </div>
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      <div className="rounded-2xl bg-[var(--background)] p-4">
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                          Core stack
-                        </p>
-                        <p className="mt-2 leading-relaxed">
-                          C#, ASP.NET Core, AWS, Terraform, MongoDB, SQL Server
-                        </p>
-                      </div>
-                      <div className="rounded-2xl bg-[var(--background)] p-4">
-                        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                          Differentiators
-                        </p>
-                        <p className="mt-2 leading-relaxed">
-                          Temporal workflows, CI/CD pipelines, Auth0, Stripe,
-                          OpenAI SDK
-                        </p>
-                      </div>
-                    </div>
-                    <div className="rounded-2xl border border-dashed border-[var(--border)] bg-[var(--accent-soft)] px-4 py-4 text-sm text-muted">
-                      Open to backend, platform, cloud, and AI-adjacent
-                      engineering roles.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </AnimatedSection>
-
-        <AnimatedSection id="proof" className="py-20">
-          <Container>
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-              <SectionHeader
-                eyebrow="Proof"
-                title="The strongest story here is execution, not just tool familiarity."
-                description="This portfolio now leads with how I work: stable APIs, cloud delivery discipline, and backend systems shaped around real product constraints."
-              />
-              <div className="grid gap-4 sm:grid-cols-3">
-                <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)]">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                    Engineering lens
-                  </p>
-                  <p className="mt-4 text-xl font-semibold text-foreground font-display">
-                    Reliability first
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    I focus on systems that need predictable behavior, clean
-                    failure handling, and clear operational ownership.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)]">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                    Delivery lens
-                  </p>
-                  <p className="mt-4 text-xl font-semibold text-foreground font-display">
-                    Infrastructure included
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    Product delivery does not stop at code. Provisioning,
-                    deployment, secrets, and monitoring are part of the
-                    engineering boundary.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 shadow-[var(--shadow)]">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                    Product lens
-                  </p>
-                  <p className="mt-4 text-xl font-semibold text-foreground font-display">
-                    Practical AI usage
-                  </p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">
-                    AI is treated as a workflow capability inside real products,
-                    not as a visual gimmick.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Container>
-        </AnimatedSection>
+        <HeroSection />
 
         <AnimatedSection id="experience" className="py-20">
           <Container>
@@ -417,34 +214,6 @@ export default function Home() {
           </Container>
         </AnimatedSection>
 
-        <AnimatedSection id="capabilities" className="py-20">
-          <Container>
-            <SectionHeader
-              eyebrow="Capabilities"
-              title="The capability stack is organized around outcomes."
-              description="Instead of listing tools in isolation, this section explains what they enable in practice."
-            />
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              {capabilities.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-[2rem] border border-[var(--border)] bg-[var(--card)] p-7 shadow-[var(--shadow)]"
-                >
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
-                    Capability
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold text-foreground font-display">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-relaxed text-muted">
-                    {item.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Container>
-        </AnimatedSection>
-
         <AnimatedSection
           id="contact"
           className="border-t border-[var(--border)] py-20"
@@ -452,22 +221,12 @@ export default function Home() {
           <Container>
             <div className="overflow-hidden rounded-[2rem] border border-[var(--border)] bg-[var(--card)] shadow-[var(--shadow)]">
               <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-                <div className="border-b border-[var(--border)] bg-[var(--card-strong)] p-8 lg:border-b-0 lg:border-r">
+                <div className="border-b border-[var(--border)] bg-[var(--card)] p-8 lg:border-b-0 lg:border-r">
                   <SectionHeader
                     eyebrow="Contact"
-                    title="If the problem is backend complexity, delivery discipline, or cloud reliability, I am interested."
-                    description="Use the form for roles, freelance discussions, or engineering conversations. Direct contact options are here as well."
+                    title="Get in touch."
                   />
                   <div className="mt-8 grid gap-4 text-sm text-muted">
-                    <div className="rounded-2xl bg-[var(--card)] p-4">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                        Best fit
-                      </p>
-                      <p className="mt-2 leading-relaxed">
-                        Backend engineering, platform work, cloud infrastructure,
-                        API-heavy systems, and AI-enabled product operations.
-                      </p>
-                    </div>
                     <div>
                       <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
                         Email
