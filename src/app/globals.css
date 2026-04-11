@@ -52,17 +52,17 @@ body {
   font-family: var(--font-body), "Inter", system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   background-image: radial-gradient(
-      900px circle at 10% 0%,
-      rgba(30, 99, 255, 0.16),
+      900px circle at 12% 0%,
+      rgba(30, 99, 255, 0.1),
       transparent 42%
     ),
     radial-gradient(
       700px circle at 100% 12%,
-      rgba(25, 35, 62, 0.2),
+      rgba(25, 35, 62, 0.12),
       transparent 48%
-    ),
-    linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.02));
-  background-attachment: fixed;
+    );
+  background-repeat: no-repeat;
+  background-attachment: scroll;
 }
 
 a {
