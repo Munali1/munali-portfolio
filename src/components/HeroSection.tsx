@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactElement } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
@@ -12,7 +13,7 @@ type SystemEvent = {
 
 type TechChip = {
   label: string;
-  Icon: (props: { className?: string }) => JSX.Element;
+  Icon: (props: { className?: string }) => ReactElement;
 };
 
 const SYSTEM_EVENTS: Array<Omit<SystemEvent, "id">> = [
