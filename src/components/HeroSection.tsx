@@ -113,14 +113,14 @@ export default function HeroSection() {
             </motion.p>
             <motion.h1
               variants={fadeUp}
-              className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl font-display"
+              className="mt-5 max-w-4xl text-[1.5rem] font-semibold tracking-tight text-foreground sm:text-[1.9rem] lg:text-[2.35rem] font-display"
             >
               I design and build backend platforms that stay reliable under
               real operational pressure.
             </motion.h1>
             <motion.p
               variants={fadeUp}
-              className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg"
+              className="mt-5 max-w-2xl text-[0.8rem] leading-relaxed text-muted sm:text-xs"
             >
               My work sits at the intersection of API engineering, AWS
               infrastructure, delivery automation, and workflow reliability.

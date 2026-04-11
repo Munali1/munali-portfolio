@@ -60,7 +60,7 @@ export default function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
               {project.type}
             </p>
-            <h3 className="mt-4 text-2xl font-semibold text-foreground font-display sm:text-3xl">
+            <h3 className="mt-4 text-base font-semibold text-foreground font-display sm:text-lg">
               {project.name}
             </h3>
             <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
@@ -70,7 +70,7 @@ export default function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
 
           <div className="flex flex-col justify-between gap-6">
             <div>
-              <p className="max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              <p className="max-w-2xl text-[0.8rem] leading-relaxed text-muted sm:text-xs">
                 {project.description}
               </p>
               <div className="mt-5 flex flex-wrap gap-2 text-xs text-muted">

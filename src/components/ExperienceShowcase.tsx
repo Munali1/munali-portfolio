@@ -55,7 +55,7 @@ export default function ExperienceShowcase({
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
               {experience.period}
             </p>
-            <h3 className="mt-4 text-2xl font-semibold tracking-tight text-foreground font-display sm:text-3xl">
+            <h3 className="mt-4 text-base font-semibold tracking-tight text-foreground font-display sm:text-lg">
               {experience.role}
             </h3>
             <p className="mt-2 text-sm text-muted sm:text-base">

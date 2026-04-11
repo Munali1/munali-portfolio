@@ -109,7 +109,7 @@ export default function Home() {
       <main>
         <HeroSection />
 
-        <AnimatedSection id="experience" className="py-20">
+        <AnimatedSection id="experience" className="py-16">
           <Container>
             <SectionHeader
               eyebrow="Experience"
@@ -122,7 +122,7 @@ export default function Home() {
 
         <AnimatedSection
           id="projects"
-          className="border-t border-[var(--border)] py-20"
+          className="border-t border-[var(--border)] py-16"
         >
           <Container>
             <SectionHeader
@@ -136,7 +136,7 @@ export default function Home() {
 
         <AnimatedSection
           id="contact"
-          className="border-t border-[var(--border)] py-20"
+          className="border-t border-[var(--border)] py-16"
         >
           <Container>
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
