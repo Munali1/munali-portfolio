@@ -1,101 +1,72 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
+﻿import { ArrowUpRight } from "lucide-react";
 
 type Project = {
   name: string;
   type: string;
   description: string;
   stack: string[];
-  outcome: string;
+  contributions: string[];
   url: string;
+  featured?: boolean;
 };
 
 type ProjectsShowcaseProps = {
   projects: Project[];
 };
 
-const listVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.14,
-      delayChildren: 0.08,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: "easeOut" as const },
-  },
-};
-
 export default function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <motion.div
-      className="mt-12 space-y-10"
-      initial={reduceMotion ? false : "hidden"}
-      whileInView={reduceMotion ? undefined : "visible"}
-      viewport={reduceMotion ? undefined : { once: true, amount: 0.2 }}
-      variants={reduceMotion ? undefined : listVariants}
-    >
+    <div className="project-index">
       {projects.map((project, index) => (
-        <motion.a
+        <article
           key={project.name}
-          href={project.url}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`Open ${project.name} on GitHub`}
-          className="group grid gap-6 lg:grid-cols-[0.9fr_1.1fr]"
-          variants={reduceMotion ? undefined : itemVariants}
-          whileHover={reduceMotion ? undefined : { y: -3 }}
+          className={`project-entry${project.featured ? " project-entry-featured" : ""}`}
+          aria-labelledby={`project-title-${index}`}
         >
-          <div className="lg:pt-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
+          <div className="project-entry-heading">
+            <p className="project-entry-meta">
+              {project.featured && <span>Featured work</span>}
               {project.type}
             </p>
-            <h3 className="mt-4 text-base font-semibold text-foreground font-display sm:text-lg">
+            <h3 id={`project-title-${index}`} className="project-entry-title">
               {project.name}
             </h3>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
-              {project.outcome}
-            </p>
           </div>
-
-          <div className="flex flex-col justify-between gap-6">
-            <div>
-              <p className="max-w-2xl text-[0.8rem] leading-relaxed text-muted sm:text-xs">
-                {project.description}
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2 text-xs text-muted">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5"
-                  >
-                    {tech}
-                  </span>
+          <div className="project-entry-body">
+            <p className="project-entry-description">{project.description}</p>
+            <div className="project-contributions">
+              <p>{project.featured ? "My contributions" : "Contributions"}</p>
+              <ul>
+                {project.contributions.map((contribution) => (
+                  <li key={contribution}>{contribution}</li>
                 ))}
-              </div>
+              </ul>
             </div>
-
-            <div className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition group-hover:translate-x-1">
-              View repository
-              <span aria-hidden="true">-&gt;</span>
-            </div>
+            <ul
+              className="project-technologies"
+              aria-label={`${project.name} technologies`}
+            >
+              {project.stack.map((technology) => (
+                <li key={technology}>{technology}</li>
+              ))}
+            </ul>
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-entry-link"
+              aria-label={
+                project.featured
+                  ? `Visit ${project.name} (opens in a new tab)`
+                  : `View ${project.name} repository (opens in a new tab)`
+              }
+            >
+              {project.featured ? "Visit RentMatrix" : "View repository"}
+              <ArrowUpRight size={16} strokeWidth={1.5} aria-hidden="true" />
+            </a>
           </div>
-
-          {index < projects.length - 1 ? (
-            <div className="lg:col-span-2 h-px bg-[var(--border)]/70" aria-hidden="true" />
-          ) : null}
-        </motion.a>
+        </article>
       ))}
-    </motion.div>
+    </div>
   );
 }

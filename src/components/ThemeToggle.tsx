@@ -1,73 +1,47 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+import { Moon, Sun } from "lucide-react";
 
-const STORAGE_KEY = "theme";
+function subscribeToTheme(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+  return () => observer.disconnect();
+}
+
+function isDarkTheme() {
+  return document.documentElement.classList.contains("dark");
+}
+
+function serverTheme() {
+  return true;
+}
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<"dark" | "light">(() => {
-    if (typeof window === "undefined") {
-      return "dark";
+  const dark = useSyncExternalStore(subscribeToTheme, isDarkTheme, serverTheme);
+
+  function toggleTheme() {
+    const nextDark = document.documentElement.classList.toggle("dark");
+    try {
+      localStorage.setItem("theme", nextDark ? "dark" : "light");
+    } catch {
+      // The theme still works when browser storage is unavailable.
     }
-
-    const stored = localStorage.getItem(STORAGE_KEY) as
-      | "dark"
-      | "light"
-      | null;
-    const prefersDark =
-      window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
-    return stored ?? (prefersDark ? "dark" : "light");
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    const nextTheme = theme === "dark" ? "light" : "dark";
-    setTheme(nextTheme);
-    document.documentElement.classList.toggle("dark", nextTheme === "dark");
-    localStorage.setItem(STORAGE_KEY, nextTheme);
-  };
+  }
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      aria-pressed={theme === "dark"}
+      aria-pressed={dark}
       aria-label="Toggle color theme"
-      className="relative inline-flex h-10 w-16 items-center rounded-full border border-[var(--border)] bg-[var(--card)]/90 transition hover:border-[var(--accent)]"
+      className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[var(--border)] text-muted-strong transition-colors duration-150 ease-[var(--ease)] hover:bg-[var(--card-strong)] hover:text-foreground"
     >
-      <span className="sr-only">Toggle color theme</span>
-      <span
-        className={`flex h-7 w-7 items-center justify-center rounded-full bg-[var(--accent)] text-black transition-transform ${
-          theme === "dark" ? "translate-x-8" : "translate-x-1"
-        }`}
-      >
-        {theme === "dark" ? (
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            className="h-4 w-4"
-            fill="currentColor"
-          >
-            <path d="M21.5 14.5a8.5 8.5 0 1 1-10-10 7 7 0 0 0 10 10z" />
-          </svg>
-        ) : (
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            className="h-4 w-4"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.7"
-          >
-            <circle cx="12" cy="12" r="4.2" />
-            <path d="M12 2v2.4M12 19.6V22M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2 12h2.4M19.6 12H22M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7" />
-          </svg>
-        )}
-      </span>
+      <Sun size={18} strokeWidth={1.5} className="dark:hidden" aria-hidden="true" />
+      <Moon size={18} strokeWidth={1.5} className="hidden dark:block" aria-hidden="true" />
     </button>
   );
 }

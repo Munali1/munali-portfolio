@@ -6,6 +6,8 @@ import HeroSection from "@/components/HeroSection";
 import SectionHeader from "@/components/SectionHeader";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 import ThemeToggle from "@/components/ThemeToggle";
+import Navigation from "@/components/Navigation";
+import { ArrowUpRight } from "lucide-react";
 
 const navItems = [
   { label: "Experience", href: "#experience" },
@@ -18,6 +20,11 @@ const experiences = [
     role: "Associate Software Engineer",
     company: "Proventus Analytics",
     period: "Current role",
+    dates: "June 2025–present",
+    story: "Taking responsibility for the whole system",
+    summary:
+      "At Proventus, my work connects the API, the infrastructure beneath it, and the workflows that keep it running. That means thinking beyond the endpoint: how code ships, how jobs recover, and how a team builds on it.",
+    focus: ["API engineering", "Cloud & delivery", "Reliable workflows"],
     highlights: [
       "Built RESTful APIs using C# and ASP.NET Core for production workflows.",
       "Deployed AWS infrastructure with Terraform for repeatable environments.",
@@ -25,95 +32,151 @@ const experiences = [
       "Integrated MongoDB, Auth0, and Stripe for secure data and payments.",
       "Implemented Temporal workflows for reliable background processing.",
       "Contributed to AI features using the OpenAI SDK.",
+      "Containerized services with Docker and implemented ECS and EC2 Auto Scaling using Spot and On-Demand capacity.",
+      "Mentored junior developers through code reviews and technical guidance.",
     ],
   },
   {
     role: "Software Engineer Intern",
     company: "Proventus Analytics",
     period: "Earlier stage",
+    story: "Building the foundations",
+    summary:
+      "Internal tools were a place to connect backend fundamentals to everyday needs: useful APIs, dependable asset storage, and delivery alongside a cross-functional team.",
+    focus: ["Internal tools", "AWS S3", "Team delivery"],
     highlights: [
       "Built foundational APIs supporting internal tools.",
       "Implemented AWS S3 integrations for asset storage.",
       "Collaborated with cross-functional teams on delivery.",
     ],
   },
+  {
+    role: ".NET Intern",
+    company: "Spiralogics International Pvt. Ltd.",
+    period: "February–April 2025",
+    story: "Connecting the full stack",
+    summary:
+      "At Spiralogics, I worked across the interface, application logic, and database. Clean Architecture and background jobs helped me see how those pieces could stay maintainable as an application grew.",
+    focus: ["ASP.NET MVC", "Clean Architecture", "Hangfire"],
+    highlights: [
+      "Worked on full-stack web application development using ASP.NET MVC, C#, and SQL Server.",
+      "Applied Clean Architecture principles to structure scalable and maintainable codebases.",
+      "Implemented background job processing using Hangfire to automate periodic tasks and used Chart.js for visualization.",
+    ],
+  },
 ];
 
 const projects = [
   {
+    name: "RentMatrix",
+    featured: true,
+    type: "Property management platform",
+    description:
+      "Property management software that brings leases, maintenance, and property finances into one workspace.",
+    contributions: [
+      "Backend APIs and access controls for property workflows",
+      "Background workflow reliability with Temporal",
+      "Cloud infrastructure and deployment automation",
+    ],
+    stack: ["C#", "ASP.NET Core", "MongoDB", "Temporal", "AWS", "Terraform"],
+    url: "https://rentmatrix.app",
+  },
+  {
     name: "GovConnect",
-    type: "Security-sensitive service portal",
+    type: "Public services",
     description:
       "A government services portal focused on secure, compliant access to citizen workflows and case data.",
     stack: ["ASP.NET", "C#", "REST", "SQL"],
-    outcome:
-      "Demonstrates structured domain modeling, secure service design, and regulated-workflow thinking.",
+    contributions: ["Domain modeling, secure service access, and citizen workflows"],
     url: "https://github.com/Munali1/GovConnect-EGov",
   },
   {
     name: "Payroll Management System",
-    type: "Operational workflow platform",
+    type: "Workflow automation",
     description:
       "Automated payroll processing with job scheduling, approvals, and audit-ready reporting.",
     stack: ["ASP.NET Core", "EF Core", "Hangfire", "SQL Server"],
-    outcome:
-      "Shows business-flow automation, traceable approvals, and systems designed around operational clarity.",
+    contributions: ["Job scheduling, approval flows, and traceable reporting"],
     url: "https://github.com/Munali1/Payroll-Management-System",
   },
   {
     name: "E-commerce Platform",
-    type: "Transactional commerce system",
+    type: "Commerce",
     description:
       "Scalable storefront and order management platform with modular services and clean admin tooling.",
     stack: ["ASP.NET MVC", "C#", "Stripe", "MySQL"],
-    outcome:
-      "Proves end-to-end work on payments, modular backend structure, and transaction-heavy product flows.",
+    contributions: ["Order management, Stripe payments, and modular services"],
     url: "https://github.com/Munali1/Ecommerce-DarazClone",
+  },
+];
+
+const contactDetails = [
+  {
+    label: "Email",
+    href: "mailto:munali.shakya@gmail.com",
+    value: "munali.shakya@gmail.com",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/Munali1",
+    value: "github.com/Munali1",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/munali-shakya-665b0b253/",
+    value: "linkedin.com/in/munali-shakya-665b0b253",
+  },
+  {
+    label: "Phone",
+    href: "tel:+9779840095558",
+    value: "+977 9840095558",
   },
 ];
 
 export default function Home() {
   return (
-    <div className="text-foreground">
-      <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/82 backdrop-blur-xl">
-        <Container className="flex flex-wrap items-center justify-between gap-4 py-4">
-          <div className="flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--card)] text-sm font-semibold shadow-sm">
-              MS
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-foreground">
-                Munali Shakya
-              </p>
-              <p className="text-xs text-muted">Software Engineer</p>
-            </div>
-          </div>
-          <nav
-            aria-label="Primary"
-            className="order-3 -mx-2 flex w-full items-center gap-2 overflow-x-auto px-2 pb-1 text-sm font-medium text-muted-strong lg:order-none lg:w-auto lg:overflow-visible lg:px-0 lg:pb-0"
+    <div id="top" className="text-foreground">
+      <a
+        href="#main-content"
+        className="sr-only z-[100] rounded-lg bg-[var(--foreground)] px-4 py-3 text-[var(--background)] focus:not-sr-only focus:fixed focus:left-6 focus:top-4"
+      >
+        Skip to content
+      </a>
+      <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]">
+        <Container className="flex h-20 items-center gap-3 sm:gap-6">
+          <a
+            href="#top"
+            aria-label="Munali Shakya home"
+            className="flex shrink-0 items-center gap-3 rounded-lg"
           >
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="whitespace-nowrap rounded-full border border-transparent px-3 py-2 transition hover:border-[var(--border)] hover:bg-[var(--card)] hover:text-foreground"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
+            <span
+              className="flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border)] font-display text-sm font-medium"
+              aria-hidden="true"
+            >
+              MS
+            </span>
+            <span>
+              <span className="block text-sm font-medium text-foreground sm:text-base">
+                Munali Shakya
+              </span>
+              <span className="mt-1 block text-xs text-muted">
+                Software Engineer
+              </span>
+            </span>
+          </a>
+          <Navigation items={navItems} />
           <ThemeToggle />
         </Container>
       </header>
 
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <HeroSection />
 
-        <AnimatedSection id="experience" className="py-16">
+        <AnimatedSection id="experience" className="story-section">
           <Container>
             <SectionHeader
-              eyebrow="Experience"
-              title="Experience framed around responsibility, not just titles."
+              eyebrow="01 / Experience"
+              title="From building features to connecting systems"
               description="The emphasis here is on production-facing engineering work: APIs, infrastructure, automation, and integrations that support ongoing delivery."
             />
             <ExperienceShowcase experiences={experiences} />
@@ -122,13 +185,13 @@ export default function Home() {
 
         <AnimatedSection
           id="projects"
-          className="border-t border-[var(--border)] py-16"
+          className="story-section projects-section border-t border-[var(--border)]"
         >
           <Container>
             <SectionHeader
-              eyebrow="Projects"
-              title="Selected work that shows system thinking, not just feature shipping."
-              description="Each project points to a different kind of backend challenge: secure access, operational automation, and transaction-heavy product flows."
+              eyebrow="02 / Projects"
+              title="Selected work"
+              description="Backend engineering, reliable workflows, and the products they support"
             />
             <ProjectsShowcase projects={projects} />
           </Container>
@@ -136,113 +199,44 @@ export default function Home() {
 
         <AnimatedSection
           id="contact"
-          className="border-t border-[var(--border)] py-16"
+          className="story-section border-t border-[var(--border)]"
         >
           <Container>
-            <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-              <div>
-                <SectionHeader eyebrow="Contact" title="Get in touch." />
-                <div className="mt-8 grid gap-4 text-sm text-muted">
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                      Email
-                    </p>
-                    <a
-                      href="mailto:munali.shakya@gmail.com"
-                      className="mt-2 inline-flex items-center gap-2 text-foreground"
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        className="h-4 w-4 text-[var(--accent)]"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M4 6h16v12H4z"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="m4 7 8 6 8-6"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      munali.shakya@gmail.com
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                      GitHub
-                    </p>
-                    <a
-                      href="https://github.com/Munali1"
-                      className="mt-2 inline-flex items-center gap-2 text-foreground"
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="h-4 w-4 text-[var(--accent)]"
-                        aria-hidden="true"
-                      >
-                        <path d="M12 2c-5.52 0-10 4.59-10 10.25 0 4.53 2.87 8.37 6.85 9.73.5.1.68-.22.68-.5 0-.24-.01-.88-.01-1.72-2.79.63-3.38-1.38-3.38-1.38-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.55 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.23-.27-4.58-1.15-4.58-5.1 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.73 0 0 .85-.28 2.78 1.06.81-.23 1.67-.35 2.52-.35.86 0 1.72.12 2.52.35 1.93-1.34 2.78-1.06 2.78-1.06.55 1.42.2 2.47.1 2.73.64.72 1.03 1.64 1.03 2.77 0 3.96-2.35 4.83-4.59 5.09.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .28.18.6.69.5A10.03 10.03 0 0 0 22 12.25C22 6.59 17.52 2 12 2Z" />
-                      </svg>
-                      github.com/Munali1
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                      LinkedIn
-                    </p>
-                    <a
-                      href="https://www.linkedin.com/in/munali-shakya-665b0b253/"
-                      className="mt-2 inline-flex items-center gap-2 break-all text-foreground"
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="h-4 w-4 text-[var(--accent)]"
-                        aria-hidden="true"
-                      >
-                        <path d="M5.05 3.5a1.9 1.9 0 0 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm-1.3 6.3h2.6v10.7h-2.6V9.8Zm6.32 0h2.5v1.46h.03c.35-.67 1.2-1.38 2.47-1.38 2.64 0 3.13 1.77 3.13 4.07v6.55h-2.6v-5.8c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.22 1.53-2.22 3.06v5.9h-2.6V9.8Z" />
-                      </svg>
-                      linkedin.com/in/munali-shakya-665b0b253
-                    </a>
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
-                      Phone
-                    </p>
-                    <a
-                      href="tel:+9779840095558"
-                      className="mt-2 inline-flex items-center gap-2 text-foreground"
-                    >
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        className="h-4 w-4 text-[var(--accent)]"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M6.5 4.5h3l1 4-2 1a12 12 0 0 0 6 6l1.5-2 4 1v3.2c0 .7-.5 1.3-1.2 1.4-6.8 1-12.9-5.1-11.9-11.9.1-.7.7-1.2 1.4-1.2Z"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      +977 9840095558
-                    </a>
-                  </div>
-                </div>
+            <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+              <div className="min-w-0">
+                <SectionHeader
+                  eyebrow="03 / Contact"
+                  title="What are you building next?"
+                />
+                <dl className="mt-8 grid gap-6">
+                  {contactDetails.map((detail) => (
+                    <div key={detail.label}>
+                      <dt className="text-sm text-muted">{detail.label}</dt>
+                      <dd className="mt-2">
+                        <a
+                          href={detail.href}
+                          className="inline-flex max-w-full items-start gap-2 rounded-sm text-sm leading-6 text-foreground underline-offset-4 transition-colors duration-150 ease-[var(--ease)] hover:text-[var(--accent)] hover:underline"
+                        >
+                          <span className="min-w-0 break-words [overflow-wrap:anywhere]">
+                            {detail.value}
+                          </span>
+                          <ArrowUpRight
+                            size={18}
+                            strokeWidth={1.5}
+                            className="mt-1 shrink-0 text-muted"
+                            aria-hidden="true"
+                          />
+                        </a>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
               </div>
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
+                <p className="text-sm font-medium text-foreground">
                   Send a message
                 </p>
-                <p className="mt-3 max-w-lg text-base leading-relaxed text-muted">
+                <p className="mt-4 max-w-lg text-base leading-7 text-muted-strong">
                   A short brief is enough. Include the role, problem space, or
                   project scope and I can respond with relevant context.
                 </p>
@@ -253,7 +247,7 @@ export default function Home() {
         </AnimatedSection>
       </main>
 
-      <footer className="border-t border-[var(--border)] py-10 text-center text-xs text-muted">
+      <footer className="border-t border-[var(--border)] py-8 text-sm leading-6 text-muted">
         <Container>
           <p>
             Built with Next.js, Tailwind CSS, Framer Motion, and Codex.

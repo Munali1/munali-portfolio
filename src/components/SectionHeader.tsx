@@ -12,17 +12,18 @@ export default function SectionHeader({
   description,
 }: SectionHeaderProps) {
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-3xl">
       {eyebrow ? (
-        <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[var(--accent)]">
+        <p className="flex items-center gap-3 text-sm font-medium text-muted-strong">
+          <span className="h-px w-6 bg-[var(--accent)]" aria-hidden="true" />
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="mt-3 text-[1.15rem] font-semibold tracking-tight text-foreground sm:text-[1.35rem] lg:text-[1.7rem] font-display">
+      <h2 className="mt-4 font-display text-[32px] font-medium leading-[1.15] text-foreground sm:text-[40px] lg:text-[44px]">
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 max-w-xl text-[0.8rem] leading-relaxed text-muted sm:text-xs">
+        <p className="mt-4 max-w-2xl text-base leading-7 text-muted-strong">
           {description}
         </p>
       ) : null}

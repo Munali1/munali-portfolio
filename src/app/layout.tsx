@@ -47,6 +47,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => {
+              let theme;
+              try { theme = localStorage.getItem("theme"); } catch {}
+              const dark = theme === "dark" || (theme !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+              document.documentElement.classList.toggle("dark", dark);
+            })();`,
+          }}
+        />
+      </head>
       <body className={`${manrope.variable} ${spaceGrotesk.variable} antialiased`}>
         {children}
       </body>
