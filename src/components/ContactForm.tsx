@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
@@ -38,57 +39,63 @@ export default function ContactForm() {
   };
 
   return (
-    <form className="mt-8 grid gap-5" onSubmit={handleSubmit}>
+    <form className="mt-8 grid gap-6" onSubmit={handleSubmit}>
       <div>
-        <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+        <label htmlFor="contact-name" className="text-sm font-medium text-muted-strong">
           Name
         </label>
         <input
+          id="contact-name"
           type="text"
           name="name"
+          autoComplete="name"
           required
-          className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--background)] px-4 py-3.5 text-sm text-foreground outline-none transition focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_var(--ring)]"
+          className="contact-field"
           placeholder="Your name"
         />
       </div>
       <div>
-        <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+        <label htmlFor="contact-email" className="text-sm font-medium text-muted-strong">
           Email
         </label>
         <input
+          id="contact-email"
           type="email"
           name="email"
+          autoComplete="email"
           required
-          className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--background)] px-4 py-3.5 text-sm text-foreground outline-none transition focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_var(--ring)]"
+          className="contact-field"
           placeholder="you@email.com"
         />
       </div>
       <div>
-        <label className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
+        <label htmlFor="contact-message" className="text-sm font-medium text-muted-strong">
           Message
         </label>
         <textarea
+          id="contact-message"
           name="message"
           rows={5}
           required
-          className="mt-2 w-full rounded-2xl border border-[var(--border)] bg-[var(--background)] px-4 py-3.5 text-sm text-foreground outline-none transition focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_var(--ring)]"
+          className="contact-field min-h-40 resize-y"
           placeholder="Share a short note about the role or project."
         />
       </div>
       <button
         type="submit"
         disabled={status === "loading"}
-        className="inline-flex items-center justify-center rounded-full bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:shadow-[var(--shadow)] disabled:cursor-not-allowed disabled:opacity-70"
+        className="button-primary justify-self-start disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === "loading" ? "Sending..." : "Send Message"}
+        <ArrowUpRight size={18} strokeWidth={1.5} aria-hidden="true" />
       </button>
       {status === "success" ? (
-        <p className="text-sm text-[var(--accent)]">
+        <p role="status" className="text-sm text-[var(--positive)]">
           Thanks! Your message has been sent.
         </p>
       ) : null}
       {status === "error" ? (
-        <p className="text-sm text-rose-500">
+        <p role="alert" className="text-sm text-[var(--negative)]">
           Something went wrong. Please try again.
         </p>
       ) : null}
