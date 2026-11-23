@@ -2,29 +2,31 @@ import type { ReactNode } from "react";
 
 type SectionHeaderProps = {
   eyebrow?: string;
+  index?: string;
   title: ReactNode;
   description?: string;
 };
 
-export default function SectionHeader({
-  eyebrow,
-  title,
-  description,
-}: SectionHeaderProps) {
+export default function SectionHeader({ eyebrow, index, title, description }: SectionHeaderProps) {
   return (
-    <div className="max-w-2xl">
-      {eyebrow ? (
-        <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[var(--accent)]">
-          {eyebrow}
-        </p>
-      ) : null}
-      <h2 className="mt-3 text-[1.15rem] font-semibold tracking-tight text-foreground sm:text-[1.35rem] lg:text-[1.7rem] font-display">
+    <div>
+      <div className="flex items-end gap-4">
+        {index ? (
+          <span className="font-display text-7xl font-extrabold leading-none text-outline sm:text-8xl">
+            {index}
+          </span>
+        ) : null}
+        {eyebrow ? (
+          <p className="mb-2 font-mono text-xs uppercase tracking-[0.3em] text-[var(--accent)]">
+            / {eyebrow}
+          </p>
+        ) : null}
+      </div>
+      <h2 className="font-display mt-6 max-w-3xl text-3xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 max-w-xl text-[0.8rem] leading-relaxed text-muted sm:text-xs">
-          {description}
-        </p>
+        <p className="mt-5 max-w-xl text-base leading-relaxed text-muted">{description}</p>
       ) : null}
     </div>
   );

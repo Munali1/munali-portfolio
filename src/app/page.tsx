@@ -5,7 +5,10 @@ import ContactForm from "@/components/ContactForm";
 import HeroSection from "@/components/HeroSection";
 import SectionHeader from "@/components/SectionHeader";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
-import ThemeToggle from "@/components/ThemeToggle";
+import SiteEffects from "@/components/SiteEffects";
+import CommandPalette from "@/components/CommandPalette";
+import PaletteButton from "@/components/PaletteButton";
+import SkyBackground from "@/components/SkyBackground";
 
 const navItems = [
   { label: "Experience", href: "#experience" },
@@ -41,33 +44,34 @@ const experiences = [
 
 const projects = [
   {
-    name: "GovConnect",
-    type: "Security-sensitive service portal",
+    name: "RentMatrix",
+    type: "Property management software",
     description:
-      "A government services portal focused on secure, compliant access to citizen workflows and case data.",
+      "Property management software. I work on the backend and the DevOps side, and I set up sign-in with WorkOS.",
+    stack: ["Backend", "DevOps", "WorkOS"],
+  },
+  {
+    name: "GovConnect",
+    type: "Government services portal",
+    description:
+      "A portal where citizens use government services and follow their cases, with access control and data privacy built in.",
     stack: ["ASP.NET", "C#", "REST", "SQL"],
-    outcome:
-      "Demonstrates structured domain modeling, secure service design, and regulated-workflow thinking.",
     url: "https://github.com/Munali1/GovConnect-EGov",
   },
   {
     name: "Payroll Management System",
-    type: "Operational workflow platform",
+    type: "Payroll automation",
     description:
-      "Automated payroll processing with job scheduling, approvals, and audit-ready reporting.",
+      "Runs payroll on a schedule, routes it through approvals, and produces reports you can audit.",
     stack: ["ASP.NET Core", "EF Core", "Hangfire", "SQL Server"],
-    outcome:
-      "Shows business-flow automation, traceable approvals, and systems designed around operational clarity.",
     url: "https://github.com/Munali1/Payroll-Management-System",
   },
   {
     name: "E-commerce Platform",
-    type: "Transactional commerce system",
+    type: "Online store",
     description:
-      "Scalable storefront and order management platform with modular services and clean admin tooling.",
+      "A storefront with order management, Stripe payments and an admin area.",
     stack: ["ASP.NET MVC", "C#", "Stripe", "MySQL"],
-    outcome:
-      "Proves end-to-end work on payments, modular backend structure, and transaction-heavy product flows.",
     url: "https://github.com/Munali1/Ecommerce-DarazClone",
   },
 ];
@@ -75,46 +79,40 @@ const projects = [
 export default function Home() {
   return (
     <div className="text-foreground">
-      <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--background)]/82 backdrop-blur-xl">
-        <Container className="flex flex-wrap items-center justify-between gap-4 py-4">
-          <div className="flex items-center gap-4">
-            <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--card)] text-sm font-semibold shadow-sm">
-              MS
-            </div>
-            <div>
-              <p className="text-sm font-semibold text-foreground">
-                Munali Shakya
-              </p>
-              <p className="text-xs text-muted">Software Engineer</p>
-            </div>
-          </div>
-          <nav
-            aria-label="Primary"
-            className="order-3 -mx-2 flex w-full items-center gap-2 overflow-x-auto px-2 pb-1 text-sm font-medium text-muted-strong lg:order-none lg:w-auto lg:overflow-visible lg:px-0 lg:pb-0"
-          >
+      <SkyBackground />
+      <SiteEffects />
+      <CommandPalette />
+      <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+        <div className="flex w-full max-w-3xl items-center justify-between gap-3 rounded-full border border-[var(--border)] bg-[var(--card)] py-2 pl-5 pr-2 shadow-[var(--shadow)] backdrop-blur-xl">
+          <a href="#" className="font-display text-base font-extrabold tracking-tight">
+            MS<span className="text-[var(--accent)]">.</span>
+          </a>
+          <nav aria-label="Primary" className="flex items-center gap-1 text-sm font-medium text-muted-strong">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="whitespace-nowrap rounded-full border border-transparent px-3 py-2 transition hover:border-[var(--border)] hover:bg-[var(--card)] hover:text-foreground"
+                className="rounded-full px-3 py-2 transition hover:bg-[var(--accent-soft)] hover:text-foreground"
               >
                 {item.label}
               </a>
             ))}
           </nav>
-          <ThemeToggle />
-        </Container>
+          <div className="flex items-center gap-2">
+            <PaletteButton />
+          </div>
+        </div>
       </header>
 
       <main>
         <HeroSection />
 
-        <AnimatedSection id="experience" className="py-16">
+        <AnimatedSection id="experience" className="py-28">
           <Container>
             <SectionHeader
+              index="01"
               eyebrow="Experience"
-              title="Experience framed around responsibility, not just titles."
-              description="The emphasis here is on production-facing engineering work: APIs, infrastructure, automation, and integrations that support ongoing delivery."
+              title="Where I've worked."
             />
             <ExperienceShowcase experiences={experiences} />
           </Container>
@@ -122,13 +120,13 @@ export default function Home() {
 
         <AnimatedSection
           id="projects"
-          className="border-t border-[var(--border)] py-16"
+          className="border-t border-[var(--border)] py-28"
         >
           <Container>
             <SectionHeader
+              index="02"
               eyebrow="Projects"
-              title="Selected work that shows system thinking, not just feature shipping."
-              description="Each project points to a different kind of backend challenge: secure access, operational automation, and transaction-heavy product flows."
+              title="Things I've built."
             />
             <ProjectsShowcase projects={projects} />
           </Container>
@@ -136,12 +134,12 @@ export default function Home() {
 
         <AnimatedSection
           id="contact"
-          className="border-t border-[var(--border)] py-16"
+          className="border-t border-[var(--border)] py-28"
         >
           <Container>
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
               <div>
-                <SectionHeader eyebrow="Contact" title="Get in touch." />
+                <SectionHeader index="03" eyebrow="Contact" title={<>Want to work <span className="text-gradient">together?</span></>} />
                 <div className="mt-8 grid gap-4 text-sm text-muted">
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-strong">
@@ -243,8 +241,8 @@ export default function Home() {
                   Send a message
                 </p>
                 <p className="mt-3 max-w-lg text-base leading-relaxed text-muted">
-                  A short brief is enough. Include the role, problem space, or
-                  project scope and I can respond with relevant context.
+                  Tell me a bit about the role or project and I&apos;ll get back
+                  to you.
                 </p>
                 <ContactForm />
               </div>
@@ -256,8 +254,7 @@ export default function Home() {
       <footer className="border-t border-[var(--border)] py-10 text-center text-xs text-muted">
         <Container>
           <p>
-            Built with Next.js, Tailwind CSS, Framer Motion, and Codex.
-            Human-led, AI-assisted.
+            Built with Next.js, Tailwind CSS and Framer Motion.
           </p>
         </Container>
       </footer>

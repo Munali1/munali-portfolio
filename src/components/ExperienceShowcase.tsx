@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { useRef } from "react";
 
 type Experience = {
   role: string;
@@ -9,76 +10,48 @@ type Experience = {
   highlights: string[];
 };
 
-type ExperienceShowcaseProps = {
-  experiences: Experience[];
-};
-
-const listVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.16,
-      delayChildren: 0.08,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: "easeOut" as const },
-  },
-};
-
-export default function ExperienceShowcase({
-  experiences,
-}: ExperienceShowcaseProps) {
-  const reduceMotion = useReducedMotion();
+export default function ExperienceShowcase({ experiences }: { experiences: Experience[] }) {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 75%", "end 60%"] });
+  const height = useSpring(scrollYProgress, { stiffness: 90, damping: 22 });
 
   return (
-    <motion.div
-      className="mt-12 space-y-10"
-      initial={reduceMotion ? false : "hidden"}
-      whileInView={reduceMotion ? undefined : "visible"}
-      viewport={reduceMotion ? undefined : { once: true, amount: 0.2 }}
-      variants={reduceMotion ? undefined : listVariants}
-    >
-      {experiences.map((experience, index) => (
-        <motion.article
-          key={experience.role}
-          className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10"
-          variants={reduceMotion ? undefined : itemVariants}
-        >
-          <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
-              {experience.period}
+    <div ref={ref} className="relative mt-16 pl-8 sm:pl-12">
+      <div className="absolute bottom-0 left-[7px] top-0 w-px bg-[var(--border)] sm:left-[11px]" />
+      <motion.div
+        style={{ scaleY: reduce ? 1 : height }}
+        className="absolute bottom-0 left-[7px] top-0 w-px origin-top bg-[var(--accent)] shadow-[0_0_14px_var(--accent)] sm:left-[11px]"
+      />
+      <div className="space-y-16">
+        {experiences.map((exp) => (
+          <motion.article
+            key={exp.role}
+            className="relative"
+            initial={reduce ? false : { opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <span className="absolute -left-8 top-2 h-4 w-4 rounded-full border-2 border-[var(--accent)] bg-[var(--background)] sm:-left-12 sm:h-6 sm:w-6" />
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-[var(--accent)]">
+              {exp.period}
             </p>
-            <h3 className="mt-4 text-base font-semibold tracking-tight text-foreground font-display sm:text-lg">
-              {experience.role}
+            <h3 className="font-display mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              {exp.role}
             </h3>
-            <p className="mt-2 text-sm text-muted sm:text-base">
-              {experience.company}
-            </p>
-          </div>
-
-          <div>
-            <ul className="grid gap-3 text-sm text-muted sm:grid-cols-2">
-              {experience.highlights.map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--accent)]" />
-                  <span className="leading-relaxed">{item}</span>
+            <p className="mt-1 text-muted">{exp.company}</p>
+            <ul className="mt-6 max-w-2xl space-y-3">
+              {exp.highlights.map((h) => (
+                <li key={h} className="flex gap-4 text-base leading-relaxed text-muted-strong">
+                  <span className="mt-3 h-px w-5 shrink-0 bg-[var(--accent)]" />
+                  {h}
                 </li>
               ))}
             </ul>
-          </div>
-
-          {index < experiences.length - 1 ? (
-            <div className="lg:col-span-2 h-px bg-[var(--border)]/70" aria-hidden="true" />
-          ) : null}
-        </motion.article>
-      ))}
-    </motion.div>
+          </motion.article>
+        ))}
+      </div>
+    </div>
   );
 }

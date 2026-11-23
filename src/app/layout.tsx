@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Space_Grotesk } from "next/font/google";
+import { Manrope, Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -7,8 +7,13 @@ const manrope = Manrope({
   subsets: ["latin"],
 });
 
-const spaceGrotesk = Space_Grotesk({
+const display = Bricolage_Grotesque({
   variable: "--font-display",
+  subsets: ["latin"],
+});
+
+const mono = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
 });
 
@@ -46,8 +51,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body className={`${manrope.variable} ${spaceGrotesk.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${manrope.variable} ${display.variable} ${mono.variable} antialiased`}>
         {children}
       </body>
     </html>

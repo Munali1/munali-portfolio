@@ -7,95 +7,64 @@ type Project = {
   type: string;
   description: string;
   stack: string[];
-  outcome: string;
-  url: string;
+  url?: string;
 };
 
-type ProjectsShowcaseProps = {
-  projects: Project[];
-};
-
-const listVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.14,
-      delayChildren: 0.08,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: "easeOut" as const },
-  },
-};
-
-export default function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
-  const reduceMotion = useReducedMotion();
+export default function ProjectsShowcase({ projects }: { projects: Project[] }) {
+  const reduce = useReducedMotion();
 
   return (
-    <motion.div
-      className="mt-12 space-y-10"
-      initial={reduceMotion ? false : "hidden"}
-      whileInView={reduceMotion ? undefined : "visible"}
-      viewport={reduceMotion ? undefined : { once: true, amount: 0.2 }}
-      variants={reduceMotion ? undefined : listVariants}
-    >
-      {projects.map((project, index) => (
-        <motion.a
-          key={project.name}
-          href={project.url}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`Open ${project.name} on GitHub`}
-          className="group grid gap-6 lg:grid-cols-[0.9fr_1.1fr]"
-          variants={reduceMotion ? undefined : itemVariants}
-          whileHover={reduceMotion ? undefined : { y: -3 }}
-        >
-          <div className="lg:pt-1">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--accent)]">
-              {project.type}
-            </p>
-            <h3 className="mt-4 text-base font-semibold text-foreground font-display sm:text-lg">
-              {project.name}
-            </h3>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
-              {project.outcome}
-            </p>
-          </div>
+    <div className="mt-16 border-b border-[var(--border)]">
+      {projects.map((project, index) => {
+        const Row = project.url ? motion.a : motion.div;
+        return (
+          <Row
+            key={project.name}
+            {...(project.url
+              ? { href: project.url, target: "_blank", rel: "noreferrer" }
+              : {})}
+            aria-label={project.url ? `${project.name} on GitHub` : undefined}
+            initial={reduce ? false : { opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="group relative grid gap-4 border-t border-[var(--border)] py-10 md:grid-cols-[3rem_1.1fr_1fr_2rem] md:gap-8 md:py-12"
+          >
+            <span className="font-mono text-sm text-muted">
+              {String(index + 1).padStart(2, "0")}
+            </span>
 
-          <div className="flex flex-col justify-between gap-6">
             <div>
-              <p className="max-w-2xl text-[0.8rem] leading-relaxed text-muted sm:text-xs">
+              <h3 className="font-display text-3xl font-bold tracking-tight text-foreground transition-all duration-300 group-hover:translate-x-2 group-hover:text-[var(--accent)] sm:text-4xl lg:text-5xl">
+                {project.name}
+              </h3>
+              <p className="mt-3 font-mono text-xs uppercase tracking-[0.2em] text-[var(--accent)]">
+                {project.type}
+              </p>
+            </div>
+
+            <div>
+              <p className="text-base leading-relaxed text-muted-strong">
                 {project.description}
               </p>
-              <div className="mt-5 flex flex-wrap gap-2 text-xs text-muted">
-                {project.stack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-[var(--border)] bg-[var(--background)] px-3 py-1.5"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              <p className="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-muted">
+                {project.stack.join(" / ")}
+              </p>
             </div>
 
-            <div className="inline-flex items-center gap-2 text-sm font-semibold text-foreground transition group-hover:translate-x-1">
-              View repository
-              <span aria-hidden="true">-&gt;</span>
-            </div>
-          </div>
-
-          {index < projects.length - 1 ? (
-            <div className="lg:col-span-2 h-px bg-[var(--border)]/70" aria-hidden="true" />
-          ) : null}
-        </motion.a>
-      ))}
-    </motion.div>
+            <span
+              aria-hidden="true"
+              className={`hidden self-start text-2xl text-[var(--accent)] transition-all duration-300 md:block ${
+                project.url
+                  ? "-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+                  : "opacity-0"
+              }`}
+            >
+              ↗
+            </span>
+          </Row>
+        );
+      })}
+    </div>
   );
 }
