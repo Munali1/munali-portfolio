@@ -1,0 +1,19 @@
+# Munali Shakya
+
+> Backend engineer building production APIs, cloud infrastructure and AI integrations with C#, ASP.NET Core, AWS, Terraform and Temporal. Available for remote work worldwide.
+
+## Links
+- [Portfolio](https://munali.com.np/)
+- [LinkedIn](https://www.linkedin.com/in/munali-shakya-665b0b253/)
+- [GitHub](https://github.com/Munali1)
+- [CV (PDF)](https://munali.com.np/Munali_Shakya-CV.pdf)
+
+## Experience
+- Associate Software Engineer, Proventus Analytics (current): REST APIs in C# and ASP.NET Core, AWS with Terraform, CI/CD, MongoDB, Auth0, Stripe, Temporal workflows, OpenAI SDK features.
+- Software Engineer Intern, Proventus Analytics: internal tool APIs, AWS S3 integrations.
+
+## Projects
+- RentMatrix: property management software. Authentication and authorization, feature development, AI integration, payment gateway integration, CI/CD, AWS, Stripe, WorkOS/Auth0, Twilio, OpenAI.
+- GovConnect: government services portal (ASP.NET, C#, REST, SQL). https://github.com/Munali1/GovConnect-EGov
+- Payroll Management System: scheduled payroll with approvals and audit reports (ASP.NET Core, EF Core, Hangfire, SQL Server). https://github.com/Munali1/Payroll-Management-System
+- E-commerce Platform: storefront with order management and admin area (ASP.NET MVC, C#, MySQL). https://github.com/Munali1/Ecommerce-DarazClone

@@ -132,10 +132,6 @@ export default function HeroSection() {
             variants={fadeUp}
             className="inline-flex items-center gap-3 rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.25em] text-muted-strong backdrop-blur-xl"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent)]" />
-            </span>
             Munali Shakya / Backend engineer
           </motion.p>
 
@@ -144,7 +140,7 @@ export default function HeroSection() {
             className="font-display mt-8 text-[clamp(3.2rem,11.5vw,10.5rem)] font-extrabold leading-[0.86] tracking-tighter text-foreground [text-shadow:0_2px_40px_rgba(255,255,255,0.15)]"
           >
             I build the
-            <span className="block h-[1.02em] overflow-hidden">
+            <span className="relative block h-[1.02em] overflow-hidden">
               <RotatingWord />
             </span>
             that keep
@@ -186,11 +182,6 @@ export default function HeroSection() {
             className="mx-auto mt-14 flex max-w-2xl flex-wrap items-center gap-x-4 gap-y-3 rounded-3xl border border-[var(--border)] bg-[var(--card)] px-5 py-3 text-left font-mono text-xs backdrop-blur-xl sm:rounded-full"
           >
             <span className="flex shrink-0 items-center gap-2 uppercase tracking-[0.2em] text-muted-strong">
-              <span
-                className={`h-2 w-2 rounded-full ${
-                  status === "healthy" ? "bg-emerald-500" : "animate-ping bg-red-500"
-                }`}
-              />
               {status === "healthy" ? "Healthy" : "Incident"}
             </span>
             <span className="relative min-w-0 flex-1 basis-48 overflow-hidden">
