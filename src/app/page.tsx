@@ -47,8 +47,8 @@ const projects = [
     name: "RentMatrix",
     type: "Property management software",
     description:
-      "Property management software. I work on the backend and the DevOps side, and I set up sign-in with WorkOS.",
-    stack: ["Backend", "DevOps", "WorkOS"],
+      "Property management software. I work on the backend and the DevOps side: authentication and authorization, feature development, AI integration, payment gateway integration, and CI/CD on AWS.",
+    stack: ["Backend", "AWS", "CI/CD", "WorkOS", "Auth0", "Stripe", "Twilio", "OpenAI"],
   },
   {
     name: "GovConnect",
@@ -70,8 +70,8 @@ const projects = [
     name: "E-commerce Platform",
     type: "Online store",
     description:
-      "A storefront with order management, Stripe payments and an admin area.",
-    stack: ["ASP.NET MVC", "C#", "Stripe", "MySQL"],
+      "A storefront with order management and an admin area.",
+    stack: ["ASP.NET MVC", "C#", "MySQL"],
     url: "https://github.com/Munali1/Ecommerce-DarazClone",
   },
 ];
