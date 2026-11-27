@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -27,8 +27,11 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: "/" },
+  applicationName: "Munali Shakya",
   authors: [{ name: "Munali Shakya", url: SITE_URL }],
   creator: "Munali Shakya",
+  category: "technology",
+  formatDetection: { email: false, telephone: false, address: false },
   keywords: [
     "Munali Shakya",
     "Backend Engineer",
@@ -48,40 +51,91 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: SITE_URL,
     siteName: "Munali Shakya",
-    type: "website",
+    type: "profile",
+    firstName: "Munali",
+    lastName: "Shakya",
+    username: "Munali1",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
+    images: ["/opengraph-image"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#3b3a6b",
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/#profile`,
+      url: SITE_URL,
+      name: TITLE,
+      description: DESCRIPTION,
+      inLanguage: "en",
+      isPartOf: { "@id": `${SITE_URL}/#website` },
+      mainEntity: { "@id": `${SITE_URL}/#person` },
+    },
+    {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,
       name: "Munali Shakya",
+      givenName: "Munali",
+      familyName: "Shakya",
       url: SITE_URL,
-      jobTitle: "Backend Engineer",
+      image: `${SITE_URL}/opengraph-image`,
+      jobTitle: "Associate Software Engineer",
       description: DESCRIPTION,
-      worksFor: { "@type": "Organization", name: "Proventus Analytics" },
+      address: { "@type": "PostalAddress", addressCountry: "NP" },
+      worksFor: {
+        "@type": "Organization",
+        name: "Proventus Analytics",
+      },
+      hasOccupation: [
+        {
+          "@type": "Occupation",
+          name: "Associate Software Engineer",
+          description:
+            "Proventus Analytics (current). Builds production REST APIs with C# and ASP.NET Core, AWS infrastructure with Terraform, CI/CD pipelines, Temporal workflows, and integrations with MongoDB, Auth0, Stripe and the OpenAI SDK.",
+          skills: "C#, ASP.NET Core, AWS, Terraform, CI/CD, MongoDB, Auth0, Stripe, Temporal, OpenAI SDK",
+        },
+        {
+          "@type": "Occupation",
+          name: "Software Engineer Intern",
+          description:
+            "Proventus Analytics. Developed C# APIs for internal tools, wrote unit tests and built AWS S3 integrations.",
+          skills: "C#, API development, unit testing, AWS S3",
+        },
+        {
+          "@type": "Occupation",
+          name: ".NET Intern",
+          description:
+            "Spiralogics International, February to April 2025. Built full-stack ASP.NET MVC features in C# and SQL Server using Clean Architecture, Hangfire background jobs and Chart.js dashboards.",
+          skills: "C#, ASP.NET MVC, SQL Server, Clean Architecture, Hangfire, Chart.js",
+        },
+      ],
       knowsAbout: [
         "C#",
         "ASP.NET Core",
+        "ASP.NET MVC",
         "AWS",
         "Terraform",
         "Temporal",
         "CI/CD",
+        "SQL Server",
+        "MongoDB",
         "Authentication and authorization",
         "Payment gateway integration",
         "OpenAI integration",
       ],
       sameAs: [
-        "https://www.linkedin.com/in/munali-shakya-665b0b253/",
+        "https://www.linkedin.com/in/munalishakya/",
         "https://github.com/Munali1",
       ],
     },
