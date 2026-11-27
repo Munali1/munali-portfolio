@@ -2,15 +2,23 @@
 
 > Backend engineer building production APIs, cloud infrastructure and AI integrations with C#, ASP.NET Core, AWS, Terraform and Temporal. Available for remote work worldwide.
 
+## Quick answers
+- Who is Munali Shakya? A backend engineer from Nepal. Currently an Associate Software Engineer at Proventus Analytics.
+- What does Munali work with? C#, ASP.NET Core, ASP.NET MVC, SQL Server, MongoDB, AWS, Terraform, CI/CD, Temporal workflows, Auth0, Stripe and the OpenAI SDK.
+- Where has Munali worked? Spiralogics International (.NET Intern, Feb to Apr 2025), then Proventus Analytics (Software Engineer Intern, now Associate Software Engineer).
+- Is Munali available for work? Yes, for remote roles and projects worldwide.
+- How can I contact Munali? Use the contact form at https://munali.com.np/#contact, email munali.shakya@gmail.com, or message on LinkedIn.
+
 ## Links
 - [Portfolio](https://munali.com.np/)
-- [LinkedIn](https://www.linkedin.com/in/munali-shakya-665b0b253/)
+- [LinkedIn](https://www.linkedin.com/in/munalishakya/)
 - [GitHub](https://github.com/Munali1)
 - [CV (PDF)](https://munali.com.np/Munali_Shakya-CV.pdf)
 
 ## Experience
-- Associate Software Engineer, Proventus Analytics (current): REST APIs in C# and ASP.NET Core, AWS with Terraform, CI/CD, MongoDB, Auth0, Stripe, Temporal workflows, OpenAI SDK features.
-- Software Engineer Intern, Proventus Analytics: internal tool APIs, AWS S3 integrations.
+- Associate Software Engineer, Proventus Analytics (current): REST APIs in C# and ASP.NET Core, AWS infrastructure with Terraform, CI/CD pipelines, MongoDB, Auth0, Stripe, Temporal workflows, OpenAI SDK features.
+- Software Engineer Intern, Proventus Analytics: C# API development, unit testing, internal tool APIs, AWS S3 integrations.
+- .NET Intern, Spiralogics International (Feb to Apr 2025, first internship): full-stack ASP.NET MVC features in C# and SQL Server, Clean Architecture, Hangfire background jobs, Chart.js dashboards, code reviews and team deadlines.
 
 ## Projects
 - RentMatrix: property management software. Authentication and authorization, feature development, AI integration, payment gateway integration, CI/CD, AWS, Stripe, WorkOS/Auth0, Twilio, OpenAI.

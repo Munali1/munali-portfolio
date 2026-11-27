@@ -18,9 +18,36 @@ const navItems = [
 
 const experiences = [
   {
+    role: ".NET Intern",
+    company: "Spiralogics International",
+    period: "Feb – Apr 2025",
+    meta: "Internship | 3 mos",
+    stack: ["C#", "ASP.NET MVC", "SQL Server", "Clean Architecture", "Hangfire", "Chart.js"],
+    highlights: [
+      "Built features for full-stack ASP.NET MVC applications in C# and SQL Server during a three-month internship.",
+      "I structured code with Clean Architecture, automated recurring tasks with Hangfire, and built Chart.js dashboards for user-facing reports.",
+      "This was where I learned to work in a real codebase with code reviews and team deadlines.",
+    ],
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Proventus Analytics",
+    period: "Earlier stage",
+    meta: "Internship",
+    stack: ["C#", "API Development", "Unit Testing", "AWS S3"],
+    highlights: [
+      "Developed foundational C# APIs supporting internal tools.",
+      "Wrote unit tests to keep API changes safe.",
+      "Implemented AWS S3 integrations for asset storage.",
+      "Collaborated with cross-functional teams on delivery.",
+    ],
+  },
+  {
     role: "Associate Software Engineer",
     company: "Proventus Analytics",
     period: "Current role",
+    meta: "Full-time",
+    stack: ["C#", "ASP.NET Core", "AWS", "Terraform", "CI/CD", "MongoDB", "Auth0", "Stripe", "Temporal", "OpenAI SDK"],
     highlights: [
       "Built RESTful APIs using C# and ASP.NET Core for production workflows.",
       "Deployed AWS infrastructure with Terraform for repeatable environments.",
@@ -28,16 +55,6 @@ const experiences = [
       "Integrated MongoDB, Auth0, and Stripe for secure data and payments.",
       "Implemented Temporal workflows for reliable background processing.",
       "Contributed to AI features using the OpenAI SDK.",
-    ],
-  },
-  {
-    role: "Software Engineer Intern",
-    company: "Proventus Analytics",
-    period: "Earlier stage",
-    highlights: [
-      "Built foundational APIs supporting internal tools.",
-      "Implemented AWS S3 integrations for asset storage.",
-      "Collaborated with cross-functional teams on delivery.",
     ],
   },
 ];
@@ -107,7 +124,7 @@ export default function Home() {
       <main>
         <HeroSection />
 
-        <AnimatedSection id="experience" className="py-28">
+        <AnimatedSection id="experience" className="pb-4 pt-28">
           <Container>
             <SectionHeader
               index="01"
@@ -120,7 +137,7 @@ export default function Home() {
 
         <AnimatedSection
           id="projects"
-          className="border-t border-[var(--border)] py-28"
+          className="pb-4 pt-10"
         >
           <Container>
             <SectionHeader
@@ -134,7 +151,7 @@ export default function Home() {
 
         <AnimatedSection
           id="contact"
-          className="border-t border-[var(--border)] py-28"
+          className="pb-16 pt-10"
         >
           <Container>
             <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
@@ -195,7 +212,7 @@ export default function Home() {
                       LinkedIn
                     </p>
                     <a
-                      href="https://www.linkedin.com/in/munali-shakya-665b0b253/"
+                      href="https://www.linkedin.com/in/munalishakya/"
                       className="mt-2 inline-flex items-center gap-2 break-all text-foreground"
                     >
                       <svg
@@ -206,7 +223,7 @@ export default function Home() {
                       >
                         <path d="M5.05 3.5a1.9 1.9 0 0 1 0 3.8 1.9 1.9 0 0 1 0-3.8Zm-1.3 6.3h2.6v10.7h-2.6V9.8Zm6.32 0h2.5v1.46h.03c.35-.67 1.2-1.38 2.47-1.38 2.64 0 3.13 1.77 3.13 4.07v6.55h-2.6v-5.8c0-1.38-.03-3.16-1.93-3.16-1.93 0-2.22 1.53-2.22 3.06v5.9h-2.6V9.8Z" />
                       </svg>
-                      linkedin.com/in/munali-shakya-665b0b253
+                      linkedin.com/in/munalishakya
                     </a>
                   </div>
                   <div>
@@ -251,7 +268,7 @@ export default function Home() {
         </AnimatedSection>
       </main>
 
-      <footer className="border-t border-[var(--border)] py-10 text-center text-xs text-muted">
+      <footer className="py-10 text-center text-xs text-muted">
         <Container>
           <p>
             Built with Next.js, Tailwind CSS and Framer Motion.

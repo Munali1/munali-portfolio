@@ -120,7 +120,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-14 pt-32">
+    <section className="relative isolate flex min-h-[100svh] items-center overflow-hidden pb-10 pt-28">
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-10">
         <motion.div
           className="relative z-10 text-center"
@@ -137,7 +137,7 @@ export default function HeroSection() {
 
           <motion.h1
             variants={fadeUp}
-            className="font-display mt-8 text-[clamp(3.2rem,11.5vw,10.5rem)] font-extrabold leading-[0.86] tracking-tighter text-foreground [text-shadow:0_2px_40px_rgba(255,255,255,0.15)]"
+            className="font-display mt-6 text-[clamp(2.4rem,min(7.5vw,12vh),6.5rem)] font-extrabold leading-[0.86] tracking-tighter text-foreground [text-shadow:0_2px_40px_rgba(255,255,255,0.15)]"
           >
             I build the
             <span className="relative block h-[1.02em] overflow-hidden">
@@ -149,7 +149,7 @@ export default function HeroSection() {
 
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-10 max-w-2xl text-lg leading-relaxed text-muted-strong sm:text-xl"
+            className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-muted-strong sm:text-lg"
           >
             I&apos;m a backend engineer. I work with C#, ASP.NET Core, AWS and
             Terraform, and I like code that&apos;s easy to run in production.
@@ -157,12 +157,12 @@ export default function HeroSection() {
 
           <motion.div
             variants={fadeUp}
-            className="mt-10 flex flex-wrap items-center justify-center gap-4"
+            className="mt-7 flex flex-wrap items-center justify-center gap-3"
           >
             <Magnetic>
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-8 py-4 text-base font-bold text-[var(--on-accent)] shadow-[var(--shadow)] transition hover:scale-105"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-bold text-[var(--on-accent)] shadow-[var(--shadow)] transition hover:scale-105"
               >
                 See selected work <span aria-hidden="true">↓</span>
               </a>
@@ -170,7 +170,7 @@ export default function HeroSection() {
             <Magnetic>
               <a
                 href="/Munali_Shakya-CV.pdf"
-                className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--card)] px-8 py-4 text-base font-semibold text-foreground backdrop-blur-xl transition hover:border-[var(--accent)]"
+                className="inline-flex items-center rounded-full border border-[var(--border)] bg-[var(--card)] px-6 py-3 text-sm font-semibold text-foreground backdrop-blur-xl transition hover:border-[var(--accent)]"
               >
                 Download CV
               </a>
@@ -179,7 +179,7 @@ export default function HeroSection() {
 
           <motion.div
             variants={fadeUp}
-            className="mx-auto mt-14 flex max-w-2xl flex-wrap items-center gap-x-4 gap-y-3 rounded-3xl border border-[var(--border)] bg-[var(--card)] px-5 py-3 text-left font-mono text-xs backdrop-blur-xl sm:rounded-full"
+            className="mx-auto mt-9 flex max-w-2xl flex-wrap items-center gap-x-4 gap-y-3 rounded-3xl border border-[var(--border)] bg-[var(--card)] px-5 py-3 text-left font-mono text-xs backdrop-blur-xl sm:rounded-full"
           >
             <span className="flex shrink-0 items-center gap-2 uppercase tracking-[0.2em] text-muted-strong">
               {status === "healthy" ? "Healthy" : "Incident"}
